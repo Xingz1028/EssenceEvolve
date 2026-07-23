@@ -100,14 +100,48 @@ public class MixEffectEvent {
                 }
                 fireAndWaterAttackParticle(entity,level);
             }
-        }else if (entity.hasEffect(EssEffect.AMBIENT_WATER_EFFECT.get())) {
+        }
+        if (entity.hasEffect(EssEffect.AMBIENT_WATER_EFFECT.get())) {
             entity.extinguishFire();
             if (entity.hasEffect(EssEffect.AMBIENT_FIRE_EFFECT.get())) {
+                int fireAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.AMBIENT_WATER_EFFECT.get())).getAmplifier();
+                int waterAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.AMBIENT_FIRE_EFFECT.get())).getAmplifier();
                 entity.removeEffect(EssEffect.AMBIENT_WATER_EFFECT.get());
                 entity.removeEffect(EssEffect.AMBIENT_FIRE_EFFECT.get());
                 entity.hurt(entity.damageSources().magic(), 3);
+                entity.addEffect(new MobEffectInstance(EssEffect.STEAM_EFFECT.get(), 20, (fireAmplifier + 1 + waterAmplifier + 1) / 2));
                 if (entity instanceof Player player) {
                     player.displayClientMessage(Component.literal("你触发了【水火蒸泯】~<环境版>伤害为" + 3).withStyle(ChatFormatting.GREEN), true);
+                }
+                fireAndWaterAttackParticle(entity,level);
+            }
+        }
+        if (entity.hasEffect(EssEffect.AMBIENT_WATER_EFFECT.get())) {
+            entity.extinguishFire();
+            if (entity.hasEffect(EssEffect.FIRE_EFFECT.get())) {
+                int fireAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.FIRE_EFFECT.get())).getAmplifier();
+                int waterAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.AMBIENT_WATER_EFFECT.get())).getAmplifier();
+                entity.removeEffect(EssEffect.AMBIENT_WATER_EFFECT.get());
+                entity.removeEffect(EssEffect.FIRE_EFFECT.get());
+                entity.hurt(entity.damageSources().magic(), ((fireAmplifier + 1) * 5 + (waterAmplifier + 1) * 5)*0.5F);
+                entity.addEffect(new MobEffectInstance(EssEffect.STEAM_EFFECT.get(), 20, (fireAmplifier + 1 + waterAmplifier + 1) / 2));
+                if (entity instanceof Player player) {
+                    player.displayClientMessage(Component.literal("你触发了【水火蒸泯】<环境混合版（水A+火）>伤害为" + (((fireAmplifier + 1) * 5 + (waterAmplifier + 1) * 5)*0.5F)).withStyle(ChatFormatting.GREEN), true);
+                }
+                fireAndWaterAttackParticle(entity,level);
+            }
+        }
+        if (entity.hasEffect(EssEffect.WATER_EFFECT.get())) {
+            entity.extinguishFire();
+            if (entity.hasEffect(EssEffect.AMBIENT_FIRE_EFFECT.get())) {
+                int fireAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.AMBIENT_FIRE_EFFECT.get())).getAmplifier();
+                int waterAmplifier = Objects.requireNonNull(entity.getEffect(EssEffect.WATER_EFFECT.get())).getAmplifier();
+                entity.removeEffect(EssEffect.AMBIENT_FIRE_EFFECT.get());
+                entity.removeEffect(EssEffect.WATER_EFFECT.get());
+                entity.hurt(entity.damageSources().magic(), ((fireAmplifier + 1) * 5 + (waterAmplifier + 1) * 5)*0.5F);
+                entity.addEffect(new MobEffectInstance(EssEffect.STEAM_EFFECT.get(), 20, (fireAmplifier + 1 + waterAmplifier + 1) / 2));
+                if (entity instanceof Player player) {
+                    player.displayClientMessage(Component.literal("你触发了【水火蒸泯】<环境混合版（水+火A）>伤害为" + (((fireAmplifier + 1) * 5 + (waterAmplifier + 1) * 5)*0.5F)).withStyle(ChatFormatting.GREEN), true);
                 }
                 fireAndWaterAttackParticle(entity,level);
             }

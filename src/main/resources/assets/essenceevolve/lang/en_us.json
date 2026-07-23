@@ -1,0 +1,54 @@
+{
+  "item.essenceevolve.essence_vial": "essence vial",
+  "item.essenceevolve.essence_vial_fire": "essence vial of fire",
+  "item.essenceevolve.essence_vial_water": "essence vial of water",
+  "item.essenceevolve.essence_vial_earth": "essence vial of earth",
+  "item.essenceevolve.essence_vial_metal": "essence vial of metal",
+  "item.essenceevolve.essence_vial_wood": "essence vial of wood",
+  "item.essenceevolve.essence_vial_wind": "essence vial of wind",
+  "item.essenceevolve.essence_vial_light": "essence vial of light",
+  "item.essenceevolve.essence_vial_thunder": "essence vial of thunder",
+  "item.essenceevolve.dim_blade": "dim blade",
+  "item.essenceevolve.dim_hilt": "dim hilt",
+  "item.essenceevolve.dim_guard": "Dim Guard",
+  "item.essenceevolve.metal_essence_stone": "Metal Essence Stone",
+  "item.essenceevolve.wood_essence_stone": "Wood Essence Stone",
+  "item.essenceevolve.water_essence_stone": "Water Essence Stone",
+  "item.essenceevolve.fire_essence_stone": "Fire Essence Stone",
+  "item.essenceevolve.earth_essence_stone": "Earth Essence Stone",
+
+
+
+  "effect.essenceevolve.metal_effect": "metal",
+  "effect.essenceevolve.metal_beneficial_effect": "sharp metal ward",
+  "effect.essenceevolve.wood_effect": "wood",
+  "effect.essenceevolve.wood_beneficial_effect": "verdant sprout infusion",
+  "effect.essenceevolve.water_effect": "water",
+  "effect.essenceevolve.ambient_water_effect": "ambient water",
+  "effect.essenceevolve.fire_effect": "fire",
+  "effect.essenceevolve.ambient_fire_effect": "ambient fire",
+  "effect.essenceevolve.earth_effect": "earth",
+  "effect.essenceevolve.light_effect": "light",
+
+  "block.essenceevolve.essence_assembly_table": "essence assembly table",
+  "block.essenceevolve.herb_cauldron": "Herb Cauldron",
+
+
+
+
+  "effect.essenceevolve.steam_effect": "element vaporization",
+  "effect.essenceevolve.mire_surge_effect": "mire surge",
+  "effect.essenceevolve.cinder_silt_bind_effect": "cinder silt bind",
+  "effect.essenceevolve.wood_and_water_effect": "wetwood lock jump",
+  "effect.essenceevolve.high_fire_effect": "blaze inferno",
+
+
+
+  "item.essenceevolve.metal_effect_sword": "sword of metal",
+  "item.essenceevolve.wood_effect_sword": "sword of wood",
+  "item.essenceevolve.water_effect_sword": "sword of water",
+  "item.essenceevolve.fire_effect_sword": "sword of fire",
+  "item.essenceevolve.earth_effect_sword": "sword of earth",
+  "essence_assembly_table_menu": "Essence Assembly Table",
+  "herb_cauldron_memu": "Herb Cauldron"
+}

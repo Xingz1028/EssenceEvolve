@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "essenceevolve:block/essence_assembly_table"
+    },
+    "facing=south": {
+      "model": "essenceevolve:block/essence_assembly_table",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "essenceevolve:block/essence_assembly_table",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "essenceevolve:block/essence_assembly_table",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "fire_attack": {
+    "sounds": [
+      "essenceevolve:fire_attack"
+    ]
+  },
+  "metal_attack": {
+    "sounds": [
+      "essenceevolve:metal_attack"
+    ]
+  },
+  "earth_attack": {
+    "sounds": [
+      "essenceevolve:earth_attack"
+    ]
+  },
+  "wood_attack": {
+    "sounds": [
+      "essenceevolve:wood_attack"
+    ]
+  }
+}

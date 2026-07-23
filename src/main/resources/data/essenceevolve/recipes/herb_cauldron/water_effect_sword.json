@@ -1,0 +1,10 @@
+{
+  "type": "essenceevolve:herb_cauldron_recipe_serializer",
+  "ingredients": [
+    {"item": "essenceevolve:essence_vial_water"}
+  ],
+  "output": {
+    "item": "essenceevolve:water_effect_sword",
+    "count": 1
+  }
+}

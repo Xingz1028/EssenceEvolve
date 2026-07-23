@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "essenceevolve:block/herb_cauldron"
+    },
+    "facing=south": {
+      "model": "essenceevolve:block/herb_cauldron",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "essenceevolve:block/herb_cauldron",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "essenceevolve:block/herb_cauldron",
+      "y": 270
+    }
+  }
+}

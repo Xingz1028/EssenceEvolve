@@ -1,0 +1,51 @@
+{
+  "item.essenceevolve.essence_vial" : "物蕴瓶",
+  "item.essenceevolve.essence_vial_fire": "火之蕴瓶",
+  "item.essenceevolve.essence_vial_water": "水之蕴瓶",
+  "item.essenceevolve.essence_vial_earth": "土之蕴瓶",
+  "item.essenceevolve.essence_vial_metal": "金之蕴瓶",
+  "item.essenceevolve.essence_vial_wood": "木之蕴瓶",
+  "item.essenceevolve.essence_vial_wind": "风之蕴瓶",
+  "item.essenceevolve.essence_vial_light": "光之蕴瓶",
+  "item.essenceevolve.essence_vial_thunder": "雷之蕴瓶",
+  "item.essenceevolve.dim_blade": "暗淡剑刃",
+  "item.essenceevolve.dim_hilt": "暗淡剑柄",
+  "item.essenceevolve.dim_guard": "暗淡护手",
+  "item.essenceevolve.metal_essence_stone": "金属蕴石",
+  "item.essenceevolve.wood_essence_stone": "草木蕴石",
+  "item.essenceevolve.water_essence_stone": "流水蕴石",
+  "item.essenceevolve.fire_essence_stone": "烈焰蕴石",
+  "item.essenceevolve.earth_essence_stone": "大地蕴石",
+
+
+  "effect.essenceevolve.metal_effect": "金",
+  "effect.essenceevolve.metal_beneficial_effect": "锐金护持",
+  "effect.essenceevolve.wood_effect": "木",
+  "effect.essenceevolve.wood_beneficial_effect": "翠芽滋蕴",
+  "effect.essenceevolve.water_effect": "水",
+  "effect.essenceevolve.ambient_water_effect": "水(环境版)",
+  "effect.essenceevolve.fire_effect": "火",
+  "effect.essenceevolve.ambient_fire_effect": "火(环境版)",
+  "effect.essenceevolve.earth_effect": "土",
+  "effect.essenceevolve.light_effect": "光",
+
+  "block.essenceevolve.essence_assembly_table": "物蕴装配台",
+  "block.essenceevolve.herb_cauldron": "熬药锅",
+
+  "effect.essenceevolve.steam_effect": "水火蒸泯",
+  "effect.essenceevolve.mire_surge_effect": "淤潮之效",
+  "effect.essenceevolve.cinder_silt_bind_effect": "灼淤锁身",
+  "effect.essenceevolve.wood_and_water_effect": "枝木缠绕",
+  "effect.essenceevolve.high_fire_effect": "烈火燎原",
+
+
+  "item.essenceevolve.metal_effect_sword": "锐金物蕴之剑",
+  "item.essenceevolve.wood_effect_sword": "自然物蕴之剑",
+  "item.essenceevolve.water_effect_sword": "流水物蕴之剑",
+  "item.essenceevolve.fire_effect_sword": "烈火物蕴之剑",
+  "item.essenceevolve.earth_effect_sword": "大地物蕴之剑",
+  "essence_assembly_table_menu": "物蕴装配台",
+  "herb_cauldron_memu": "熬药锅"
+
+
+}

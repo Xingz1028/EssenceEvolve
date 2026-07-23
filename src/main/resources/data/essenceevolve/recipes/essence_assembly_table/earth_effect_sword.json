@@ -1,0 +1,14 @@
+{
+  "type": "essenceevolve:essence_assembly_table_recipe_serializer",
+  "ingredients": [
+    {"item": "essenceevolve:dim_guard"},
+    {"item": "essenceevolve:earth_essence_stone"},
+    {"item": "essenceevolve:dim_blade"},
+    {"item": "essenceevolve:dim_hilt"},
+    {"item": "essenceevolve:essence_vial_earth"}
+  ],
+  "output": {
+    "item": "essenceevolve:earth_effect_sword",
+    "count": 1
+  }
+}

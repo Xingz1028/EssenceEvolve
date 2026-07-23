@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "essenceevolve:item/water_effect_sword"
+  }
+}

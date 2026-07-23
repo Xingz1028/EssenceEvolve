@@ -1,0 +1,10 @@
+{
+  "type": "essenceevolve:herb_cauldron_recipe_serializer",
+  "ingredients": [
+    {"tag": "essenceevolve:herb"}
+  ],
+  "output": {
+    "item": "minecraft:golden_carrot",
+    "count": 1
+  }
+}

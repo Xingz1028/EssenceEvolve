@@ -7,8 +7,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import org.com.xing_zi.essenceevolve.EssItem.EssItems;
-import org.com.xing_zi.essenceevolve.block.EssBlocks;
+import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
+import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
 
 public class EssEvoModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -16,38 +16,54 @@ public class EssEvoModCreativeModeTabs {
 
     public static final RegistryObject<CreativeModeTab> ESSENCE_EVOLVE =
         CREATIVE_MODE_TABS.register("essence_evolve",()->CreativeModeTab.builder()
-                .icon(() -> new ItemStack(EssItems.ESSENCE_VIAL_METAL.get()))
+                .icon(() -> new ItemStack(EssItemRegister.ESSENCE_VIAL_METAL.get()))
                 .title(Component.translatable("Essence Evolve"))
                 .displayItems((pParameters, creative) -> {
-                    creative.accept(EssItems.ESSENCE_VIAL.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_WATER.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_FIRE.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_EARTH.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_WOOD.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_METAL.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_WIND.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_LIGHT.get());
-                    creative.accept(EssItems.ESSENCE_VIAL_THUNDER.get());
-                    creative.accept(EssItems.DIM_BLADE.get());
-                    creative.accept(EssItems.DIM_HILT.get());
-                    creative.accept(EssItems.DIM_GUARD.get());
-                    creative.accept(EssItems.METAL_ESSENCE_STONE.get());
-                    creative.accept(EssItems.WOOD_ESSENCE_STONE.get());
-                    creative.accept(EssItems.WATER_ESSENCE_STONE.get());
-                    creative.accept(EssItems.FIRE_ESSENCE_STONE.get());
-                    creative.accept(EssItems.EARTH_ESSENCE_STONE.get());
-                    creative.accept(EssItems.METAL_EFFECT_SWORD.get());
-                    creative.accept(EssItems.WOOD_EFFECT_SWORD.get());
-                    creative.accept(EssItems.WATER_EFFECT_SWORD.get());
-                    creative.accept(EssItems.FIRE_EFFECT_SWORD.get());
-                    creative.accept(EssItems.EARTH_EFFECT_SWORD.get());
-                    creative.accept(EssBlocks.ESSENCE_ASSEMBLY_TABLE.get());
-                    creative.accept(EssBlocks.HERB_CAULDRON.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_WATER.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_FIRE.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_EARTH.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_WOOD.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_METAL.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_WIND.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_LIGHT.get());
+                    creative.accept(EssItemRegister.ESSENCE_VIAL_THUNDER.get());
+                    creative.accept(EssItemRegister.DIM_BLADE.get());
+                    creative.accept(EssItemRegister.DIM_HILT.get());
+                    creative.accept(EssItemRegister.DIM_GUARD.get());
+                    creative.accept(EssItemRegister.METAL_ESSENCE_STONE.get());
+                    creative.accept(EssItemRegister.WOOD_ESSENCE_STONE.get());
+                    creative.accept(EssItemRegister.WATER_ESSENCE_STONE.get());
+                    creative.accept(EssItemRegister.FIRE_ESSENCE_STONE.get());
+                    creative.accept(EssItemRegister.EARTH_ESSENCE_STONE.get());
+                    creative.accept(EssItemRegister.METAL_EFFECT_SWORD.get());
+                    creative.accept(EssItemRegister.WOOD_EFFECT_SWORD.get());
+                    creative.accept(EssItemRegister.WATER_EFFECT_SWORD.get());
+                    creative.accept(EssItemRegister.FIRE_EFFECT_SWORD.get());
+                    creative.accept(EssItemRegister.EARTH_EFFECT_SWORD.get());
+                    creative.accept(EssBlockRegister.ESSENCE_ASSEMBLY_TABLE.get());
+                    creative.accept(EssBlockRegister.HERB_CAULDRON.get());
 
 
                 }).build());
 
-    public static void register(IEventBus modBus) {
+
+    public static final RegistryObject<CreativeModeTab> ESSENCE_EVOLVE_ENTITY =
+            CREATIVE_MODE_TABS.register("essence_evolve_egg",()->CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(EssItemRegister.WOOD_ESSENCE_MITE_EGG.get()))
+                    .title(Component.translatable("Essence Evolve Egg"))
+                    .displayItems((pParameters, creative) -> {
+                        creative.accept(EssItemRegister.METAL_ESSENCE_MITE_EGG.get());
+                        creative.accept(EssItemRegister.WOOD_ESSENCE_MITE_EGG.get());
+                        creative.accept(EssItemRegister.WATER_ESSENCE_MITE_EGG.get());
+                        creative.accept(EssItemRegister.FIRE_ESSENCE_MITE_EGG.get());
+                        creative.accept(EssItemRegister.EARTH_ESSENCE_MITE_EGG.get());
+                    }).build());
+
+
+
+
+    public static void registerModCreativeModeTabs(IEventBus modBus) {
         CREATIVE_MODE_TABS.register(modBus);
     }
 }

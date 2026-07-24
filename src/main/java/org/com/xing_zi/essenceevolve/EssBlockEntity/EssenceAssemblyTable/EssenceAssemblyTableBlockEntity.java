@@ -1,7 +1,6 @@
 package org.com.xing_zi.essenceevolve.EssBlockEntity.EssenceAssemblyTable;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
@@ -15,10 +14,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
-import org.com.xing_zi.essenceevolve.EssBlockEntity.BlockEntitiesRegister;
+import org.com.xing_zi.essenceevolve.EssBlockEntity.EssBlockEntitiesRegister;
 import org.com.xing_zi.essenceevolve.EssMenuType.EssenceAssemblyTableMenu.EssenceAssemblyTableMenu;
-import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
-import org.com.xing_zi.essenceevolve.recipe.EssenceAssemblyTableRecipe.EssenceAssemblyTableRecipe;
+import org.com.xing_zi.essenceevolve.EssRecipe.EssRecipesRegister;
+import org.com.xing_zi.essenceevolve.EssRecipe.EssenceAssemblyTableRecipe.EssenceAssemblyTableRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +26,7 @@ import java.util.Optional;
 public class EssenceAssemblyTableBlockEntity extends BlockEntity implements MenuProvider {
 
     public EssenceAssemblyTableBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntitiesRegister.ESSENCE_ASSEMBLY_TABLE_BLOCK_ENTITY.get(), pPos, pBlockState);//将注册的方块实体绑定到这
+        super(EssBlockEntitiesRegister.ESSENCE_ASSEMBLY_TABLE_BLOCK_ENTITY.get(), pPos, pBlockState);//将注册的方块实体绑定到这
     }
 
     public int openGuiCount = 0;

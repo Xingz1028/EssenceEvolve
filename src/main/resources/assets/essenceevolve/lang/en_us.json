@@ -1,4 +1,7 @@
 {
+  "Essence Evolve": "Essence Evolve",
+  "Essence Evolve Egg": "Essence Evolve Eggs",
+
   "item.essenceevolve.essence_vial": "essence vial",
   "item.essenceevolve.essence_vial_fire": "essence vial of fire",
   "item.essenceevolve.essence_vial_water": "essence vial of water",
@@ -51,5 +54,14 @@
   "item.essenceevolve.earth_effect_sword": "sword of earth",
   "essence_assembly_table_menu": "Essence Assembly Table",
   "herb_cauldron_memu": "Herb Cauldron",
-  "Essence Evolve": "Essence Evolve"
+  "entity.essenceevolve.metal_essence_mite": "Metal Essence Mite",
+  "entity.essenceevolve.wood_essence_mite": "Wood Essence Mite",
+  "entity.essenceevolve.water_essence_mite": "Flowing Essence Mite",
+  "entity.essenceevolve.fire_essence_mite": "Blaze Essence Mite",
+  "entity.essenceevolve.earth_essence_mite": "Earth Essence Mite",
+  "item.essenceevolve.metal_essence_mite_egg": "Metal Essence Mite Spawn Egg",
+  "item.essenceevolve.wood_essence_mite_egg": "Wood Essence Mite Spawn Egg",
+  "item.essenceevolve.water_essence_mite_egg": "Flowing Essence Mite Spawn Egg",
+  "item.essenceevolve.fire_essence_mite_egg": "Blaze Essence Mite Spawn Egg",
+  "item.essenceevolve.earth_essence_mite_egg": "Earth Essence Mite Spawn Egg"
 }

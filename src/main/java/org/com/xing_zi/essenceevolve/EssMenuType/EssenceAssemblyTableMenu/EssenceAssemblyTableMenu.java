@@ -9,9 +9,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
 import org.com.xing_zi.essenceevolve.EssBlockEntity.EssenceAssemblyTable.EssenceAssemblyTableBlockEntity;
-import org.com.xing_zi.essenceevolve.EssMenuType.EssMenus;
-import org.com.xing_zi.essenceevolve.block.EssBlocks;
+import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
 
 
 public class EssenceAssemblyTableMenu extends AbstractContainerMenu {
@@ -93,7 +93,7 @@ public class EssenceAssemblyTableMenu extends AbstractContainerMenu {
      * 并把 BlockEntity 与 ContainerData 传入。
      */
     public EssenceAssemblyTableMenu(int pContainerId, Inventory inventory, BlockEntity blockEntity, ContainerData data) {
-        super(EssMenus.ESSENCE_ASSEMBLY_TABLE_MENU.get(), pContainerId);
+        super(EssMenuRegister.ESSENCE_ASSEMBLY_TABLE_MENU.get(), pContainerId);
         this.blockEntity = (EssenceAssemblyTableBlockEntity) blockEntity;
 
         this.level = inventory.player.level();
@@ -167,7 +167,7 @@ public class EssenceAssemblyTableMenu extends AbstractContainerMenu {
      */
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), pPlayer, EssBlocks.ESSENCE_ASSEMBLY_TABLE.get());
+        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), pPlayer, EssBlockRegister.ESSENCE_ASSEMBLY_TABLE.get());
     }
 
     /**

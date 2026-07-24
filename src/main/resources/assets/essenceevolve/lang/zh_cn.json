@@ -1,4 +1,7 @@
 {
+  "Essence Evolve": "物蕴衍化",
+  "Essence Evolve Egg": "物蕴衍化刷怪蛋",
+
   "item.essenceevolve.essence_vial" : "物蕴瓶",
   "item.essenceevolve.essence_vial_fire": "火之蕴瓶",
   "item.essenceevolve.essence_vial_water": "水之蕴瓶",
@@ -42,11 +45,18 @@
   "item.essenceevolve.metal_effect_sword": "锐金物蕴之剑",
   "item.essenceevolve.wood_effect_sword": "自然物蕴之剑",
   "item.essenceevolve.water_effect_sword": "流水物蕴之剑",
-  "item.essenceevolve.fire_effect_sword": "烈火物蕴之剑",
+  "item.essenceevolve.fire_effect_sword": "烈焰物蕴之剑",
   "item.essenceevolve.earth_effect_sword": "大地物蕴之剑",
   "essence_assembly_table_menu": "物蕴装配台",
   "herb_cauldron_memu": "熬药锅",
-  "Essence Evolve": "物蕴衍化"
-
-
+  "entity.essenceevolve.metal_essence_mite": "金属蕴质螨",
+  "entity.essenceevolve.wood_essence_mite": "草木蕴质螨",
+  "entity.essenceevolve.water_essence_mite": "流水蕴质螨",
+  "entity.essenceevolve.fire_essence_mite": "烈焰蕴质螨",
+  "entity.essenceevolve.earth_essence_mite": "大地蕴质螨",
+  "item.essenceevolve.metal_essence_mite_egg": "金属蕴质螨刷怪蛋",
+  "item.essenceevolve.wood_essence_mite_egg": "草木蕴质螨刷怪蛋",
+  "item.essenceevolve.water_essence_mite_egg": "水系蕴质螨刷怪蛋",
+  "item.essenceevolve.fire_essence_mite_egg": "烈焰蕴质螨刷怪蛋",
+  "item.essenceevolve.earth_essence_mite_egg": "大地蕴质螨刷怪蛋"
 }

@@ -18,7 +18,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.com.xing_zi.essenceevolve.EssEffect.EssEffect;
+import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
 import org.jetbrains.annotations.Nullable;
@@ -50,11 +50,11 @@ public class EssenceSword extends SwordItem {
             EssParticleRegister.FIRE_SWEEP.get(),
             EssParticleRegister.EARTH_SWEEP.get()};
     private final MobEffect[] essEffects = {
-            EssEffect.METAL_EFFECT.get(),
-            EssEffect.WOOD_EFFECT.get(),
-            EssEffect.WATER_EFFECT.get(),
-            EssEffect.FIRE_EFFECT.get(),
-            EssEffect.EARTH_EFFECT.get()};
+            EssEffectRegister.METAL_EFFECT.get(),
+            EssEffectRegister.WOOD_EFFECT.get(),
+            EssEffectRegister.WATER_EFFECT.get(),
+            EssEffectRegister.FIRE_EFFECT.get(),
+            EssEffectRegister.EARTH_EFFECT.get()};
     private final String[] essStr = {
             "§e【锐金物蕴】：击中敌人施加重金灌注debuff",
             "§a【自然物蕴】：击中敌人施加缠藤缚身debuff",

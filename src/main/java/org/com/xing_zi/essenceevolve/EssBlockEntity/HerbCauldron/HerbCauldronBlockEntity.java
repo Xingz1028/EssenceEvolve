@@ -11,16 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
-import org.com.xing_zi.essenceevolve.EssBlockEntity.BlockEntitiesRegister;
+import org.com.xing_zi.essenceevolve.EssBlockEntity.EssBlockEntitiesRegister;
 import org.com.xing_zi.essenceevolve.EssMenuType.HerbCauldronMenu.HerbCauldronMenu;
-import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
-import org.com.xing_zi.essenceevolve.recipe.HerbCauldronRecipe.HerbCauldronRecipe;
+import org.com.xing_zi.essenceevolve.EssRecipe.EssRecipesRegister;
+import org.com.xing_zi.essenceevolve.EssRecipe.HerbCauldronRecipe.HerbCauldronRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,7 +27,7 @@ import java.util.Optional;
 public class HerbCauldronBlockEntity extends BlockEntity implements MenuProvider {
 
     public HerbCauldronBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntitiesRegister.HERB_CAULDRON_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(EssBlockEntitiesRegister.HERB_CAULDRON_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
     private final int MATERIAL_SLOT_1 = 0;

@@ -1,8 +1,6 @@
 package org.com.xing_zi.essenceevolve.EssMenuType.HerbCauldronMenu;
 
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -12,9 +10,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.com.xing_zi.essenceevolve.EssBlockEntity.HerbCauldron.HerbCauldronBlockEntity;
-import org.com.xing_zi.essenceevolve.EssMenuType.EssMenus;
-import org.com.xing_zi.essenceevolve.block.EssBlocks;
-import org.jetbrains.annotations.Nullable;
+import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
+import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
 
 public class HerbCauldronMenu extends AbstractContainerMenu {
     private HerbCauldronBlockEntity blockEntity;
@@ -30,7 +27,7 @@ public class HerbCauldronMenu extends AbstractContainerMenu {
     }
 
     public HerbCauldronMenu(int pContainerId, Inventory inventory, BlockEntity blockEntity, ContainerData data) {
-        super(EssMenus.HERB_CAULDRON_MENU.get(), pContainerId);
+        super(EssMenuRegister.HERB_CAULDRON_MENU.get(), pContainerId);
         this.blockEntity = (HerbCauldronBlockEntity) blockEntity;
         this.level = inventory.player.level();
         addPlayerSlots(inventory, 8, 84);
@@ -133,7 +130,7 @@ public class HerbCauldronMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {//方块消失或距离过远自动关闭gui
-        return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), pPlayer, EssBlocks.HERB_CAULDRON.get());
+        return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), pPlayer, EssBlockRegister.HERB_CAULDRON.get());
     }
     public boolean isUnderBlock() {
         return this.blockEntity.isUnderCorrectBlock();

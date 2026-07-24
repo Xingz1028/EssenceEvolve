@@ -18,5 +18,10 @@
     "sounds": [
       "essenceevolve:wood_attack"
     ]
+  },
+  "mite_attacked": {
+    "sounds": [
+      "essenceevolve:mite_attacked"
+    ]
   }
 }

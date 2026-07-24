@@ -16,14 +16,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.com.xing_zi.essenceevolve.EssBlockEntity.BlockEntitiesRegister;
-import org.com.xing_zi.essenceevolve.EssMenuType.EssMenus;
+import org.com.xing_zi.essenceevolve.EssBlockEntity.EssBlockEntitiesRegister;
+import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
+import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
+import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobEntityRegister;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.EssEffect.EssEffect;
-import org.com.xing_zi.essenceevolve.EssItem.EssItems;
+import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.com.xing_zi.essenceevolve.block.EssBlocks;
-import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
+import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
+import org.com.xing_zi.essenceevolve.EssRecipe.EssRecipesRegister;
 import org.slf4j.Logger;
 
 // 此处填写的modid必须和META-INF/mods.toml文件内配置一致
@@ -40,15 +41,17 @@ public class Essenceevolve {
 
         // 将通用初始化方法注册到模组加载事件总线
         modEventBus.addListener(this::commonSetup);
-        EssEvoModCreativeModeTabs.register(modEventBus);
-        EssItems.register(modEventBus);
-        EssEffect.register(modEventBus);
-        EssBlocks.register(modEventBus);
-        BlockEntitiesRegister.register(modEventBus);
-        EssMenus.register(modEventBus);
-        EssRecipesRegister.register(modEventBus);
+        EssEvoModCreativeModeTabs.registerModCreativeModeTabs(modEventBus);
+        EssItemRegister.registerItem(modEventBus);
+        EssEffectRegister.registerEffect(modEventBus);
+        EssBlockRegister.registerBlock(modEventBus);
+        EssBlockEntitiesRegister.registerBlockEntity(modEventBus);
+        EssMenuRegister.registerMenu(modEventBus);
+        EssRecipesRegister.registerRecipe(modEventBus);
         EssParticleRegister.registerParticles(modEventBus);
         EssSoundRegister.registerSounds(modEventBus);
+        EssMobEntityRegister.registerEntity(modEventBus);
+
         // 将当前类注册到Forge游戏事件总线，用于监听服务器、实体等游戏原生事件
         MinecraftForge.EVENT_BUS.register(this);
         // 注册物品添加至创造物品栏的监听方法

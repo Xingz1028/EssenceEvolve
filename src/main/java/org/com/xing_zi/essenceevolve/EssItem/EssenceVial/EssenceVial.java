@@ -12,7 +12,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.com.xing_zi.essenceevolve.EssItem.EssItems;
+import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -245,13 +246,13 @@ public class EssenceVial extends Item {
                         );
                     }
                 }
-                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItems.ESSENCE_VIAL_WATER.get()));
+                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItemRegister.ESSENCE_VIAL_WATER.get()));
                 handItemStack.shrink(1);
                 int freeSlot = player.getInventory().getFreeSlot();
                 if (freeSlot >= 0) {
-                    player.getInventory().add(new ItemStack(EssItems.ESSENCE_VIAL_WATER.get()));
+                    player.getInventory().add(new ItemStack(EssItemRegister.ESSENCE_VIAL_WATER.get()));
                 } else if (freeSlot == -1 && slotMatchingItem == -1) {
-                    player.drop(new ItemStack(EssItems.ESSENCE_VIAL_WATER.get()), false);
+                    player.drop(new ItemStack(EssItemRegister.ESSENCE_VIAL_WATER.get()), false);
                 }
                 //木
             } else if (WOOD_ESSENCE_BLOCKS.contains(clickBlock)) {
@@ -269,13 +270,13 @@ public class EssenceVial extends Item {
                             4D, -4D, 4D
                     );
                 }
-                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItems.ESSENCE_VIAL_WOOD.get()));
+                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItemRegister.ESSENCE_VIAL_WOOD.get()));
                 handItemStack.shrink(1);
                 int freeSlot = player.getInventory().getFreeSlot();
                 if (freeSlot >= 0) {
-                    player.getInventory().add(new ItemStack(EssItems.ESSENCE_VIAL_WOOD.get()));
+                    player.getInventory().add(new ItemStack(EssItemRegister.ESSENCE_VIAL_WOOD.get()));
                 } else if (freeSlot == -1 && slotMatchingItem == -1) {
-                    player.drop(new ItemStack(EssItems.ESSENCE_VIAL_WOOD.get()), false);
+                    player.drop(new ItemStack(EssItemRegister.ESSENCE_VIAL_WOOD.get()), false);
                 }
                 //火
             } else if (clickBlock == Blocks.FIRE || clickBlock == Blocks.LAVA_CAULDRON || clickBlock == Blocks.LAVA) {
@@ -290,13 +291,13 @@ public class EssenceVial extends Item {
                             4D, -4D, 4D
                     );
                 }
-                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItems.ESSENCE_VIAL_FIRE.get()));
+                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItemRegister.ESSENCE_VIAL_FIRE.get()));
                 handItemStack.shrink(1);
                 int freeSlot = player.getInventory().getFreeSlot();
                 if (freeSlot >= 0) {
-                    player.getInventory().add(new ItemStack(EssItems.ESSENCE_VIAL_FIRE.get()));
+                    player.getInventory().add(new ItemStack(EssItemRegister.ESSENCE_VIAL_FIRE.get()));
                 } else if (freeSlot == -1 && slotMatchingItem == -1) {
-                    player.drop(new ItemStack(EssItems.ESSENCE_VIAL_FIRE.get()), false);
+                    player.drop(new ItemStack(EssItemRegister.ESSENCE_VIAL_FIRE.get()), false);
                 }
                 //金
             } else if (clickBlock == Blocks.GOLD_BLOCK) {
@@ -314,13 +315,13 @@ public class EssenceVial extends Item {
                             4D, -4D, 4D
                     );
                 }
-                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItems.ESSENCE_VIAL_METAL.get()));
+                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItemRegister.ESSENCE_VIAL_METAL.get()));
                 handItemStack.shrink(1);
                 int freeSlot = player.getInventory().getFreeSlot();
                 if (freeSlot >= 0) {
-                    player.getInventory().add(new ItemStack(EssItems.ESSENCE_VIAL_METAL.get()));
+                    player.getInventory().add(new ItemStack(EssItemRegister.ESSENCE_VIAL_METAL.get()));
                 } else if (freeSlot == -1 && slotMatchingItem == -1) {
-                    player.drop(new ItemStack(EssItems.ESSENCE_VIAL_METAL.get()), false);
+                    player.drop(new ItemStack(EssItemRegister.ESSENCE_VIAL_METAL.get()), false);
                 }
                 //土
             } else if (EARTH_ESSENCE_BLOCKS.contains(clickBlock)) {
@@ -338,13 +339,13 @@ public class EssenceVial extends Item {
                             4D, -4D, 4D
                     );
                 }
-                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItems.ESSENCE_VIAL_EARTH.get()));
+                int slotMatchingItem = player.getInventory().findSlotMatchingItem(new ItemStack(EssItemRegister.ESSENCE_VIAL_EARTH.get()));
                 handItemStack.shrink(1);
                 int freeSlot = player.getInventory().getFreeSlot();
                 if (freeSlot >= 0) {
-                    player.getInventory().add(new ItemStack(EssItems.ESSENCE_VIAL_EARTH.get()));
+                    player.getInventory().add(new ItemStack(EssItemRegister.ESSENCE_VIAL_EARTH.get()));
                 } else if (freeSlot == -1 && slotMatchingItem == -1) {
-                    player.drop(new ItemStack(EssItems.ESSENCE_VIAL_EARTH.get()), false);
+                    player.drop(new ItemStack(EssItemRegister.ESSENCE_VIAL_EARTH.get()), false);
                 }
             }
         }

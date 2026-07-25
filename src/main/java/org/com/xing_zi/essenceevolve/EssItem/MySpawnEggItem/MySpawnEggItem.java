@@ -13,8 +13,16 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
-
+//交互失败 → FAIL
+//交互成功，不需要消耗物品 → SUCCESS
+//交互成功，消耗物品（刷怪蛋、符、工具） → CONSUME
+//工具扣耐久（极少场景） → CONSUME_PARTIAL
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -43,11 +51,39 @@ public class MySpawnEggItem extends Item {
         }
         //获取方块坐标
         BlockPos clickedPos = pContext.getClickedPos();
+        //获取手上的物品
+        ItemStack handItem = pContext.getItemInHand();
+        //获取被点击的方块的方块状态
+        BlockState blockState = level.getBlockState(clickedPos);
+        //判断点击的方块是不是刷怪笼
+        if (blockState.is(Blocks.SPAWNER)) {
+            //如果是，创建方块的方块实体
+            BlockEntity blockEntity = level.getBlockEntity(clickedPos);
+            if (blockEntity instanceof SpawnerBlockEntity spawnerBlockEntity) {
+                //设置刷怪笼的实体id
+                spawnerBlockEntity.setEntityId(entityType,level.getRandom());
+                //设置完后进行数据更改（刷新）
+                blockEntity.setChanged();
+                //blockpos：目标方块坐标
+                //oldState：修改之前的方块状态
+                //newState：修改之后的方块状态
+                //int flags 更新标志位
+                //1: UPDATE_CLIENTS      // 通知客户端刷新（视觉）
+                //2: UPDATE_NEIGHBORS    // 触发相邻方块更新（红石、比较器、活塞等）
+                //3: 全开
+                level.sendBlockUpdated(clickedPos, blockState, blockState, 3);
+                //3. 发出方块变动事件
+                level.gameEvent(pContext.getPlayer(), GameEvent.BLOCK_CHANGE, clickedPos);
+                handItem.shrink(1);
+                return InteractionResult.CONSUME;
+          }
+        }
         //获取点击方块的这一面的位置
         BlockPos relative = clickedPos.relative(pContext.getClickedFace());
         entity.setPos(relative.getX()+0.5D, relative.getY(), relative.getZ()+0.5D);
+        //添加生物
         level.addFreshEntity(entity);
-        pContext.getItemInHand().shrink(1);
+        handItem.shrink(1);
         return InteractionResult.CONSUME;
     }
 

@@ -8,20 +8,23 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntityModel;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntityRenderer;
 import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobEntityRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobModelLayerRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.EarthEssenceMite.EarthEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.EarthEssenceMite.EarthEssenceMiteEntityRenderer;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.FireEssenceMite.FireEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.FireEssenceMite.FireEssenceMiteEntityRenderer;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.MetalEssenceMite.MetalEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.MetalEssenceMite.MetalEssenceMiteEntityRenderer;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntityRenderer;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.EssenceMiteEntityModel;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.EssModelLayerRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EarthEssenceMite.EarthEssenceMiteEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EarthEssenceMite.EarthEssenceMiteEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.FireEssenceMite.FireEssenceMiteEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.FireEssenceMite.FireEssenceMiteEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceMite.MetalEssenceMiteEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceMite.MetalEssenceMiteEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EssenceMiteEntityModel;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntityRenderer;
 import org.com.xing_zi.essenceevolve.EssParticle.CustomParticle.*;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 import org.com.xing_zi.essenceevolve.EssScreenType.EssenceAssemblyTableScreen;
@@ -39,28 +42,31 @@ public class ModEvent {
             MenuScreens.register(EssMenuRegister.ESSENCE_ASSEMBLY_TABLE_MENU.get(), EssenceAssemblyTableScreen::new);
 
 
-            EntityRenderers.register(EssMobEntityRegister.METAL_ESSENCE_MITE.get(), MetalEssenceMiteEntityRenderer::new);
-            EntityRenderers.register(EssMobEntityRegister.WOOD_ESSENCE_MITE.get(), WoodEssenceMiteEntityRenderer::new);
-            EntityRenderers.register(EssMobEntityRegister.WATER_ESSENCE_MITE.get(), WaterEssenceMiteEntityRenderer::new);
-            EntityRenderers.register(EssMobEntityRegister.FIRE_ESSENCE_MITE.get(), FireEssenceMiteEntityRenderer::new);
-            EntityRenderers.register(EssMobEntityRegister.EARTH_ESSENCE_MITE.get(), EarthEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.METAL_ESSENCE_MITE.get(), MetalEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.WOOD_ESSENCE_MITE.get(), WoodEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.WATER_ESSENCE_MITE.get(), WaterEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.FIRE_ESSENCE_MITE.get(), FireEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.EARTH_ESSENCE_MITE.get(), EarthEssenceMiteEntityRenderer::new);
+            EntityRenderers.register(EssEntityRegister.MITE_HERDER_WIZARD.get(), MiteHerderWizardEntityRenderer::new);
         });
     }
     @SubscribeEvent
     public static void registerMobEntity(EntityAttributeCreationEvent event) {
-        event.put(EssMobEntityRegister.METAL_ESSENCE_MITE.get(), MetalEssenceMiteEntity.createAttributes().build());
-        event.put(EssMobEntityRegister.WOOD_ESSENCE_MITE.get(), WoodEssenceMiteEntity.createAttributes().build());
-        event.put(EssMobEntityRegister.WATER_ESSENCE_MITE.get(), WaterEssenceMiteEntity.createAttributes().build());
-        event.put(EssMobEntityRegister.FIRE_ESSENCE_MITE.get(), FireEssenceMiteEntity.createAttributes().build());
-        event.put(EssMobEntityRegister.EARTH_ESSENCE_MITE.get(), EarthEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.METAL_ESSENCE_MITE.get(), MetalEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.WOOD_ESSENCE_MITE.get(), WoodEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.WATER_ESSENCE_MITE.get(), WaterEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.FIRE_ESSENCE_MITE.get(), FireEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.EARTH_ESSENCE_MITE.get(), EarthEssenceMiteEntity.createAttributes().build());
+        event.put(EssEntityRegister.MITE_HERDER_WIZARD.get(), MiteHerderWizardEntity.createAttributes().build());
     }
     @SubscribeEvent
     public static void registerMobEntityLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(EssMobModelLayerRegister.METAL_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
-        event.registerLayerDefinition(EssMobModelLayerRegister.WOOD_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
-        event.registerLayerDefinition(EssMobModelLayerRegister.WATER_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
-        event.registerLayerDefinition(EssMobModelLayerRegister.FIRE_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
-        event.registerLayerDefinition(EssMobModelLayerRegister.EARTH_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.METAL_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.WOOD_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.WATER_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.FIRE_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.EARTH_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.MITE_HERDER_WIZARD_LAYER, MiteHerderWizardEntityModel::createBodyLayer);
     }
 
 

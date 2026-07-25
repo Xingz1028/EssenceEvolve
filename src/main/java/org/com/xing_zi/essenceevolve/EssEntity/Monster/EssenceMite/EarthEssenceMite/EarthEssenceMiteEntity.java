@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WoodEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EarthEssenceMite;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,10 +17,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.jetbrains.annotations.Nullable;
 
-public class WoodEssenceMiteEntity extends Monster {
-    public WoodEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class EarthEssenceMiteEntity extends Monster {
+    public EarthEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -60,7 +59,7 @@ public class WoodEssenceMiteEntity extends Monster {
     public boolean doHurtTarget(Entity pEntity) {
         if(super.doHurtTarget(pEntity)){
             if(pEntity instanceof LivingEntity livingEntity){
-                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.WOOD_EFFECT.get(), 160, 0));
+                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.EARTH_EFFECT.get(), 160, 0));
                 return true;
             }
         }
@@ -72,6 +71,7 @@ public class WoodEssenceMiteEntity extends Monster {
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return EssSoundRegister.MITE_ATTACKED.get();
     }
+
     @Override
     protected SoundEvent getDeathSound() {
         return EssSoundRegister.MITE_ATTACKED.get();

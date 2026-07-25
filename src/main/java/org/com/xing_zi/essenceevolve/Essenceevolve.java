@@ -19,7 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.com.xing_zi.essenceevolve.EssBlockEntity.EssBlockEntitiesRegister;
 import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
 import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobEntityRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
@@ -50,7 +50,7 @@ public class Essenceevolve {
         EssRecipesRegister.registerRecipe(modEventBus);
         EssParticleRegister.registerParticles(modEventBus);
         EssSoundRegister.registerSounds(modEventBus);
-        EssMobEntityRegister.registerEntity(modEventBus);
+        EssEntityRegister.registerEntity(modEventBus);
 
         // 将当前类注册到Forge游戏事件总线，用于监听服务器、实体等游戏原生事件
         MinecraftForge.EVENT_BUS.register(this);

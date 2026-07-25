@@ -2,7 +2,6 @@ package org.com.xing_zi.essenceevolve.EssItem;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -10,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.com.xing_zi.essenceevolve.EssItem.EssSword.EssenceSword;
 import org.com.xing_zi.essenceevolve.EssItem.EssenceVial.EssenceVial;
 import org.com.xing_zi.essenceevolve.EssItem.MySpawnEggItem.MySpawnEggItem;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobEntityRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 public class EssItemRegister {
@@ -65,33 +64,35 @@ public class EssItemRegister {
 
 
     public static final RegistryObject<Item> DIM_BLADE =
-            ESS_ITEMS.register("dim_blade",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("dim_blade",() -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> DIM_HILT =
-            ESS_ITEMS.register("dim_hilt",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("dim_hilt",() -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> DIM_GUARD =
-            ESS_ITEMS.register("dim_guard",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("dim_guard",() -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> METAL_ESSENCE_STONE =
-            ESS_ITEMS.register("metal_essence_stone",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("metal_essence_stone",() -> new Item(new Item.Properties().stacksTo(8)));
     public static final RegistryObject<Item> WOOD_ESSENCE_STONE =
-            ESS_ITEMS.register("wood_essence_stone",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("wood_essence_stone",() -> new Item(new Item.Properties().stacksTo(8)));
     public static final RegistryObject<Item> WATER_ESSENCE_STONE =
-            ESS_ITEMS.register("water_essence_stone",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("water_essence_stone",() -> new Item(new Item.Properties().stacksTo(8)));
     public static final RegistryObject<Item> FIRE_ESSENCE_STONE =
-            ESS_ITEMS.register("fire_essence_stone",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("fire_essence_stone",() -> new Item(new Item.Properties().stacksTo(8)));
     public static final RegistryObject<Item> EARTH_ESSENCE_STONE =
-            ESS_ITEMS.register("earth_essence_stone",() -> new Item(new Item.Properties()));
+            ESS_ITEMS.register("earth_essence_stone",() -> new Item(new Item.Properties().stacksTo(8)));
 
     public static final RegistryObject<Item> METAL_ESSENCE_MITE_EGG =
-            ESS_ITEMS.register("metal_essence_mite_egg",() -> new MySpawnEggItem(EssMobEntityRegister.METAL_ESSENCE_MITE,new Item.Properties()));
+            ESS_ITEMS.register("metal_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.METAL_ESSENCE_MITE,new Item.Properties()));
     public static final RegistryObject<Item> WOOD_ESSENCE_MITE_EGG =
-            ESS_ITEMS.register("wood_essence_mite_egg",() -> new MySpawnEggItem(EssMobEntityRegister.WOOD_ESSENCE_MITE,new Item.Properties()));
+            ESS_ITEMS.register("wood_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.WOOD_ESSENCE_MITE,new Item.Properties()));
     public static final RegistryObject<Item> WATER_ESSENCE_MITE_EGG =
-            ESS_ITEMS.register("water_essence_mite_egg",() -> new MySpawnEggItem(EssMobEntityRegister.WATER_ESSENCE_MITE,new Item.Properties()));
+            ESS_ITEMS.register("water_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.WATER_ESSENCE_MITE,new Item.Properties()));
     public static final RegistryObject<Item> FIRE_ESSENCE_MITE_EGG =
-            ESS_ITEMS.register("fire_essence_mite_egg",() -> new MySpawnEggItem(EssMobEntityRegister.FIRE_ESSENCE_MITE,new Item.Properties()));
+            ESS_ITEMS.register("fire_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.FIRE_ESSENCE_MITE,new Item.Properties()));
     public static final RegistryObject<Item> EARTH_ESSENCE_MITE_EGG =
-            ESS_ITEMS.register("earth_essence_mite_egg",() -> new MySpawnEggItem(EssMobEntityRegister.EARTH_ESSENCE_MITE,new Item.Properties()));
+            ESS_ITEMS.register("earth_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.EARTH_ESSENCE_MITE,new Item.Properties()));
+    public static final RegistryObject<Item> MITE_HERDER_WIZARD_EGG =
+            ESS_ITEMS.register("mite_herder_wizard_egg",() -> new MySpawnEggItem(EssEntityRegister.MITE_HERDER_WIZARD,new Item.Properties()));
 
 
 

@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.FireEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceMite;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,14 +17,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.jetbrains.annotations.Nullable;
 
-public class FireEssenceMiteEntity extends Monster {
-    public FireEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class MetalEssenceMiteEntity extends Monster {
+    public MetalEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
-
-
     @Override
     protected void updateWalkAnimation(float pPartialTick) {//Partial Ticks = 插值刻（部分刻、过渡刻） 0-1F 0表示上一刻，1表示下一刻，之间表示在两刻的0.几处插入画面
         float f;
@@ -60,7 +57,7 @@ public class FireEssenceMiteEntity extends Monster {
     public boolean doHurtTarget(Entity pEntity) {
         if(super.doHurtTarget(pEntity)){
             if(pEntity instanceof LivingEntity livingEntity){
-                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.FIRE_EFFECT.get(), 160, 0));
+                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.METAL_EFFECT.get(), 160, 0));
                 return true;
             }
         }

@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WaterEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,10 +17,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.jetbrains.annotations.Nullable;
 
-public class WaterEssenceMiteEntity extends Monster {
-    public WaterEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class WoodEssenceMiteEntity extends Monster {
+    public WoodEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -60,7 +59,7 @@ public class WaterEssenceMiteEntity extends Monster {
     public boolean doHurtTarget(Entity pEntity) {
         if(super.doHurtTarget(pEntity)){
             if(pEntity instanceof LivingEntity livingEntity){
-                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.WATER_EFFECT.get(), 160, 0));
+                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.WOOD_EFFECT.get(), 160, 0));
                 return true;
             }
         }

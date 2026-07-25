@@ -1,17 +1,14 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite;// Made with Blockbench 5.1.5
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite;// Made with Blockbench 5.1.5
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 public class EssenceMiteEntityModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart body;
@@ -49,10 +46,10 @@ public class EssenceMiteEntityModel<T extends Entity> extends HierarchicalModel<
 	@Override
 	public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.applyHeadRotation(pNetHeadYaw,pHeadPitch,pAgeInTicks);
+		this.applyHeadRotation(pNetHeadYaw,pHeadPitch);
 		this.animateWalk(EssenceMiteAnimation.move,pLimbSwing, pAgeInTicks, 1, 1);
 	}
-	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
+	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
 		pHeadPitch =  Mth.clamp(pHeadPitch, -25.0F, 45.0F);
 

@@ -58,6 +58,7 @@ public class EssEvoModCreativeModeTabs {
                         creative.accept(EssItemRegister.WATER_ESSENCE_MITE_EGG.get());
                         creative.accept(EssItemRegister.FIRE_ESSENCE_MITE_EGG.get());
                         creative.accept(EssItemRegister.EARTH_ESSENCE_MITE_EGG.get());
+                        creative.accept(EssItemRegister.MITE_HERDER_WIZARD_EGG.get());
                     }).build());
 
 

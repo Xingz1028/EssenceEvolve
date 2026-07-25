@@ -1,16 +1,16 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WaterEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobModelLayerRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.EssenceMiteEntityModel;
+import org.com.xing_zi.essenceevolve.EssEntity.EssModelLayerRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EssenceMiteEntityModel;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 public class WaterEssenceMiteEntityRenderer extends MobRenderer<WaterEssenceMiteEntity, EssenceMiteEntityModel<WaterEssenceMiteEntity>> {
 
     public WaterEssenceMiteEntityRenderer(EntityRendererProvider.Context pContext) {//shadow radius = 阴影半径
-        super(pContext, new EssenceMiteEntityModel<>(pContext.bakeLayer(EssMobModelLayerRegister.WATER_ESSENCE_MITE_LAYER)), 0.2f);
+        super(pContext, new EssenceMiteEntityModel<>(pContext.bakeLayer(EssModelLayerRegister.WATER_ESSENCE_MITE_LAYER)), 0.2f);
     }
 
     @Override

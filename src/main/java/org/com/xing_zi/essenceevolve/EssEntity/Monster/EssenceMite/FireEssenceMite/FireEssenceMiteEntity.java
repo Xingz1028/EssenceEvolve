@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.MetalEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.FireEssenceMite;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,22 +17,27 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.jetbrains.annotations.Nullable;
 
-public class MetalEssenceMiteEntity extends Monster {
-    public MetalEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class FireEssenceMiteEntity extends Monster {
+    public FireEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
 
     @Override
-    protected void updateWalkAnimation(float pPartialTick) {//Partial Ticks = 插值刻（部分刻、过渡刻） 0-1F 0表示上一刻，1表示下一刻，之间表示在两刻的0.几处插入画面
+    protected void updateWalkAnimation(float pPartialTick) {
         float f;
+        // 判断实体当前姿态：站立
         if(this.getPose() == Pose.STANDING) {
-            f = Math.min(pPartialTick * 12F, 1.0F);
+            // 动画强度随时间上涨，上限1.0F
+            //*6F：放大增长速度；
+            //Math.min(...,1.0F)：限制最大值不超过 1.0。
+            f = Math.min(pPartialTick * 6F, 1.0F);
+            //如果不是站立姿势，行走动画速度归零
         }else {
             f = 0F;
         }
+        //平滑插值   Partial Ticks = 插值刻（部分刻、过渡刻） 0-1F 0表示上一刻，1表示下一刻，之间表示在两刻的0.几处插入画面
         this.walkAnimation.update(f, 0.2f);
     }
 
@@ -60,7 +65,7 @@ public class MetalEssenceMiteEntity extends Monster {
     public boolean doHurtTarget(Entity pEntity) {
         if(super.doHurtTarget(pEntity)){
             if(pEntity instanceof LivingEntity livingEntity){
-                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.METAL_EFFECT.get(), 160, 0));
+                livingEntity.addEffect(new MobEffectInstance(EssEffectRegister.FIRE_EFFECT.get(), 160, 0));
                 return true;
             }
         }

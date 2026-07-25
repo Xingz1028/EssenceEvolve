@@ -1,10 +1,10 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity;
+package org.com.xing_zi.essenceevolve.EssEntity;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
-public class EssMobModelLayerRegister {
+public class EssModelLayerRegister {
     public static ModelLayerLocation METAL_ESSENCE_MITE_LAYER = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(Essenceevolve.MODID, "metal_essence_mite_layer"), "main");
     public static ModelLayerLocation WOOD_ESSENCE_MITE_LAYER = new ModelLayerLocation(
@@ -15,4 +15,6 @@ public class EssMobModelLayerRegister {
             ResourceLocation.fromNamespaceAndPath(Essenceevolve.MODID, "fire_essence_mite_layer"), "main");
     public static ModelLayerLocation EARTH_ESSENCE_MITE_LAYER = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(Essenceevolve.MODID, "earth_essence_mite_layer"), "main");
+    public static ModelLayerLocation MITE_HERDER_WIZARD_LAYER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(Essenceevolve.MODID, "mite_herder_wizard_layer"), "main");
 }

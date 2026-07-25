@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite;// Save this class in your mod and generate all required imports
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite;// Save this class in your mod and generate all required imports
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;

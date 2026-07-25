@@ -1,17 +1,17 @@
-package org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.WoodEssenceMite;
+package org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import org.com.xing_zi.essenceevolve.EssMobEntity.EssMobModelLayerRegister;
-import org.com.xing_zi.essenceevolve.EssMobEntity.Monster.EssenceMite.EssenceMiteEntityModel;
+import org.com.xing_zi.essenceevolve.EssEntity.EssModelLayerRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EssenceMiteEntityModel;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 import org.jetbrains.annotations.NotNull;
 
 public class WoodEssenceMiteEntityRenderer extends MobRenderer<WoodEssenceMiteEntity, EssenceMiteEntityModel<WoodEssenceMiteEntity>> {
 
     public WoodEssenceMiteEntityRenderer(EntityRendererProvider.Context pContext) {//shadow radius = 阴影半径
-        super(pContext, new EssenceMiteEntityModel<>(pContext.bakeLayer(EssMobModelLayerRegister.WOOD_ESSENCE_MITE_LAYER)), 0.2f);
+        super(pContext, new EssenceMiteEntityModel<>(pContext.bakeLayer(EssModelLayerRegister.WOOD_ESSENCE_MITE_LAYER)), 0.2f);
     }
 
     @Override

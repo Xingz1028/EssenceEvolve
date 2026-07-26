@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 
 import java.util.List;
@@ -28,22 +29,26 @@ public class WaterEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
         Level level = pLivingEntity.level();
-        if (!level.isClientSide()) {
-            ServerLevel serverLevel = (ServerLevel) level;
-            for (int i = 0; i < 10; i++) {
-                double x = pLivingEntity.getX() + (level.random.nextDouble() - 0.5D)*1.2D;
-                double y = pLivingEntity.getEyeY() + (level.random.nextDouble()-0.7);
-                double z = pLivingEntity.getZ() + (level.random.nextDouble() - 0.5D)*1.2D;
-                double dx = (level.random.nextDouble() - 0.5D) * 0.1D;
-                double dy = 0.02D;
-                double dz = (level.random.nextDouble() - 0.5D) * 0.1D;
-                // 服务端正确API：sendParticles
-                serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_ONE.get(), x, y, z, 1, dx, dy, dz, 0D);
-                serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_TWO.get(), x, y, z, 1, dx, dy, dz, 0D);
-                serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_THREE.get(), x, y, z, 1, dx, dy, dz, 0D);
-                serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_FOUR.get(), x, y, z, 1, dx, dy, dz, 0D);
+        boolean flag = !(pLivingEntity instanceof WaterEssenceMiteEntity);
+        if (flag){
+            if (!level.isClientSide()) {
+                ServerLevel serverLevel = (ServerLevel) level;
+                for (int i = 0; i < 10; i++) {
+                    double x = pLivingEntity.getX() + (level.random.nextDouble() - 0.5D)*1.2D;
+                    double y = pLivingEntity.getEyeY() + (level.random.nextDouble()-0.7);
+                    double z = pLivingEntity.getZ() + (level.random.nextDouble() - 0.5D)*1.2D;
+                    double dx = (level.random.nextDouble() - 0.5D) * 0.1D;
+                    double dy = 0.02D;
+                    double dz = (level.random.nextDouble() - 0.5D) * 0.1D;
+                    // 服务端正确API：sendParticles
+                    serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_ONE.get(), x, y, z, 1, dx, dy, dz, 0D);
+                    serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_TWO.get(), x, y, z, 1, dx, dy, dz, 0D);
+                    serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_THREE.get(), x, y, z, 1, dx, dy, dz, 0D);
+                    serverLevel.sendParticles(EssParticleRegister.WATER_TYPE_FOUR.get(), x, y, z, 1, dx, dy, dz, 0D);
+                }
             }
         }
+
     }
 
     @Override

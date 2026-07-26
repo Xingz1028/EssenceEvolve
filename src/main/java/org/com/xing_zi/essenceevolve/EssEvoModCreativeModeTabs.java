@@ -26,7 +26,6 @@ public class EssEvoModCreativeModeTabs {
                     creative.accept(EssItemRegister.ESSENCE_VIAL_WOOD.get());
                     creative.accept(EssItemRegister.ESSENCE_VIAL_METAL.get());
                     creative.accept(EssItemRegister.ESSENCE_VIAL_WIND.get());
-                    creative.accept(EssItemRegister.ESSENCE_VIAL_LIGHT.get());
                     creative.accept(EssItemRegister.ESSENCE_VIAL_THUNDER.get());
                     creative.accept(EssItemRegister.DIM_BLADE.get());
                     creative.accept(EssItemRegister.DIM_HILT.get());
@@ -41,10 +40,10 @@ public class EssEvoModCreativeModeTabs {
                     creative.accept(EssItemRegister.WATER_EFFECT_SWORD.get());
                     creative.accept(EssItemRegister.FIRE_EFFECT_SWORD.get());
                     creative.accept(EssItemRegister.EARTH_EFFECT_SWORD.get());
+                    creative.accept(EssItemRegister.THUNDER_TALISMAN.get());
+                    creative.accept(EssItemRegister.WIND_TALISMAN.get());
                     creative.accept(EssBlockRegister.ESSENCE_ASSEMBLY_TABLE.get());
                     creative.accept(EssBlockRegister.HERB_CAULDRON.get());
-
-
                 }).build());
 
 

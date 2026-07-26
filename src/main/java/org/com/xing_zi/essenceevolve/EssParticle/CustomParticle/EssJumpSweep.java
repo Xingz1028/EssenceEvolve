@@ -1,5 +1,8 @@
 package org.com.xing_zi.essenceevolve.EssParticle.CustomParticle;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -30,8 +33,6 @@ public class EssJumpSweep extends TextureSheetParticle {
             this.setSpriteFromAge(this.sprites);
         }
     }
-
-
 
     @Override
     public ParticleRenderType getRenderType() {

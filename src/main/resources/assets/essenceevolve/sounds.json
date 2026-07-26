@@ -23,5 +23,20 @@
     "sounds": [
       "essenceevolve:mite_attacked"
     ]
+  },
+  "thunder_sound": {
+    "sounds": [
+      "essenceevolve:thunder_sound"
+    ]
+  },
+  "attack": {
+    "sounds": [
+      "essenceevolve:attack"
+    ]
+  },
+  "talisman_fly": {
+    "sounds": [
+      "essenceevolve:talisman_fly"
+    ]
   }
 }

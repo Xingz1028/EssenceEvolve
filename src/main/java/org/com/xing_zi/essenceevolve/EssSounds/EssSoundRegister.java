@@ -23,6 +23,9 @@ public class EssSoundRegister {
     public static final RegistryObject<SoundEvent> FIRE_ATTACK = registerSoundEvent("fire_attack");
     public static final RegistryObject<SoundEvent> EARTH_ATTACK = registerSoundEvent("earth_attack");
     public static final RegistryObject<SoundEvent> MITE_ATTACKED = registerSoundEvent("mite_attacked");
+    public static final RegistryObject<SoundEvent> THUNDER_SOUND = registerSoundEvent("thunder_sound");
+    public static final RegistryObject<SoundEvent> ATTACK = registerSoundEvent("attack");
+    public static final RegistryObject<SoundEvent> TALISMAN_FLY = registerSoundEvent("talisman_fly");
 
 
 

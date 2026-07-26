@@ -39,10 +39,10 @@ public class EssenceAssemblyTableMenu extends AbstractContainerMenu {
 
     private void addSlots(IItemHandler itemHandler) {
         this.addSlot(new SlotItemHandler(itemHandler, TOOL_SLOT, 43 + 24, 47));
-        this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_1, 21 + 24, 25));
+        this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_1, 95 + 24, 63));
         this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_2, 65 + 24, 25));
         this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_3, 21 + 24, 69));
-        this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_4, 65 + 24, 69));
+        this.addSlot(new SlotItemHandler(itemHandler, MATERIAL_SLOT_4, 65 + 24, 47));
         this.addSlot(new SlotItemHandler(itemHandler, OUTPUT_SLOT, 128 + 24, 47));
     }
 

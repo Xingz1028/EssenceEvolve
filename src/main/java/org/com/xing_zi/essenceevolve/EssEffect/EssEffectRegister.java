@@ -42,17 +42,17 @@ public class EssEffectRegister {
     //土
     public static final RegistryObject<MobEffect> EARTH_EFFECT =
             EFFECTS.register("earth_effect", EarthEffect::new);
-    //光
-    public static final RegistryObject<MobEffect> LIGHT_EFFECT =
-            EFFECTS.register("light_effect", LightEffect::new);
     //风
     public static final RegistryObject<MobEffect> WIND_EFFECT =
             EFFECTS.register("wind_effect",WindEffect::new);
+    //雷
+    public static final RegistryObject<MobEffect> THUNDER_EFFECT =
+            EFFECTS.register("thunder_effect",ThunderEffect::new);
 
 
 
 
-    //反应这一块
+    //反应
     //水火蒸泯(水 + 火)
     public static final RegistryObject<MobEffect> STEAM_EFFECT =
             EFFECTS.register("steam_effect", SteamEffect::new);

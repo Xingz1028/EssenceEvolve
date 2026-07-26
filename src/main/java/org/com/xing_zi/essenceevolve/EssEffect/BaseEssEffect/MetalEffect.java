@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceMite.MetalEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 
 import java.util.List;
@@ -22,16 +23,13 @@ public class MetalEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
 
-        Level level = pLivingEntity.level();
-        float damage = pAmplifier + 1.5F;
-
-        // 判断实体是否在水平移动
-//        Vec3 moveVec = pLivingEntity.getDeltaMovement();
-//        boolean isMoving = Math.abs(moveVec.x) > 0.01D || Math.abs(moveVec.z) > 0.01D;
-
-        // 仅服务端执行伤害、粒子同步逻辑
-        if (!level.isClientSide()) {
-            ServerLevel serverLevel = (ServerLevel) level;
+        boolean flag = !(pLivingEntity instanceof MetalEssenceMiteEntity);
+        if (flag) {
+            Level level = pLivingEntity.level();
+            float damage = pAmplifier + 1F;
+            // 仅服务端执行伤害、粒子同步逻辑
+            if (!level.isClientSide()) {
+                ServerLevel serverLevel = (ServerLevel) level;
 
                 int particleCount = 5;
                 double velX = 0.0D;
@@ -46,10 +44,9 @@ public class MetalEffect extends MobEffect {
                     serverLevel.sendParticles(EssParticleRegister.METAL_PIECE_RIGHT.get(), px, py, pz, 1, velX, velY, velZ, 0.0D);
                     serverLevel.sendParticles(EssParticleRegister.METAL_PIECE_LEFT.get(), px, py, pz, 1, velX, velY, velZ, 0.0D);
                 }
-
-
-            // 固定周期魔法伤害
-            pLivingEntity.hurt(pLivingEntity.damageSources().magic(), damage);
+                // 固定周期魔法伤害
+                pLivingEntity.hurt(pLivingEntity.damageSources().magic(), damage);
+            }
         }
     }
 

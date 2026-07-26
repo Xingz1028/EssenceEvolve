@@ -12,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -59,6 +60,7 @@ public class MiteHerderWizardEntity extends Monster {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     }
@@ -74,12 +76,12 @@ public class MiteHerderWizardEntity extends Monster {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return EssSoundRegister.MITE_ATTACKED.get();
+        return EssSoundRegister.ATTACK.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return EssSoundRegister.MITE_ATTACKED.get();
+        return EssSoundRegister.ATTACK.get();
     }
 
 
@@ -113,8 +115,9 @@ public class MiteHerderWizardEntity extends Monster {
         EntityType<? extends Mob> entityType = supplier.get();
         Entity entity = entityType.create(level);
         if (entity != null) {
-            for (int i = 0; i < 5; i++) {
-                entity.setPos(this.getX() + (level.random.nextDouble() - 0.5D), this.getY(), this.getZ() + (level.random.nextDouble() - 0.5D));
+            entity.setPos(this.getX() + (level.random.nextDouble() - 0.5D), this.getY(), this.getZ() + (level.random.nextDouble() - 0.5D));
+            int r = rand.nextInt(10) + 1;
+            for (int i = 0; i < r; i++) {
                 level.addFreshEntity(entity);
                 particles(level, entity);
             }

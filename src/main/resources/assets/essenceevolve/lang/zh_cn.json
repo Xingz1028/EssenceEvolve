@@ -1,8 +1,7 @@
 {
   "Essence Evolve": "物蕴衍化",
   "Essence Evolve Egg": "物蕴衍化刷怪蛋",
-
-  "item.essenceevolve.essence_vial" : "物蕴瓶",
+  "item.essenceevolve.essence_vial": "物蕴瓶",
   "item.essenceevolve.essence_vial_fire": "火之蕴瓶",
   "item.essenceevolve.essence_vial_water": "水之蕴瓶",
   "item.essenceevolve.essence_vial_earth": "土之蕴瓶",
@@ -19,8 +18,8 @@
   "item.essenceevolve.water_essence_stone": "流水蕴石",
   "item.essenceevolve.fire_essence_stone": "烈焰蕴石",
   "item.essenceevolve.earth_essence_stone": "大地蕴石",
-
-
+  "item.essenceevolve.thunder_talisman": "雷符",
+  "item.essenceevolve.wind_talisman": "风符",
   "effect.essenceevolve.metal_effect": "金",
   "effect.essenceevolve.metal_beneficial_effect": "锐金护持",
   "effect.essenceevolve.wood_effect": "木",
@@ -30,18 +29,15 @@
   "effect.essenceevolve.fire_effect": "火",
   "effect.essenceevolve.ambient_fire_effect": "火(环境版)",
   "effect.essenceevolve.earth_effect": "土",
-  "effect.essenceevolve.light_effect": "光",
-
+  "effect.essenceevolve.wind_effect": "风",
+  "effect.essenceevolve.thunder_effect": "雷",
   "block.essenceevolve.essence_assembly_table": "物蕴装配台",
   "block.essenceevolve.herb_cauldron": "熬药锅",
-
   "effect.essenceevolve.steam_effect": "水火蒸泯",
   "effect.essenceevolve.mire_surge_effect": "淤潮之效",
   "effect.essenceevolve.cinder_silt_bind_effect": "灼淤锁身",
   "effect.essenceevolve.wood_and_water_effect": "枝木缠绕",
   "effect.essenceevolve.high_fire_effect": "烈火燎原",
-
-
   "item.essenceevolve.metal_effect_sword": "锐金物蕴之剑",
   "item.essenceevolve.wood_effect_sword": "自然物蕴之剑",
   "item.essenceevolve.water_effect_sword": "流水物蕴之剑",
@@ -54,9 +50,11 @@
   "entity.essenceevolve.water_essence_mite": "流水蕴质螨",
   "entity.essenceevolve.fire_essence_mite": "烈焰蕴质螨",
   "entity.essenceevolve.earth_essence_mite": "大地蕴质螨",
+  "entity.essenceevolve.mite_herder_wizard": "蕴质螨巫师",
   "item.essenceevolve.metal_essence_mite_egg": "金属蕴质螨刷怪蛋",
   "item.essenceevolve.wood_essence_mite_egg": "草木蕴质螨刷怪蛋",
   "item.essenceevolve.water_essence_mite_egg": "水系蕴质螨刷怪蛋",
   "item.essenceevolve.fire_essence_mite_egg": "烈焰蕴质螨刷怪蛋",
-  "item.essenceevolve.earth_essence_mite_egg": "大地蕴质螨刷怪蛋"
+  "item.essenceevolve.earth_essence_mite_egg": "大地蕴质螨刷怪蛋",
+  "item.essenceevolve.mite_herder_wizard_egg": "蕴质螨巫师刷怪蛋"
 }

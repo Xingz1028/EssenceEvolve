@@ -12,7 +12,7 @@ import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceM
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntity;
-import org.com.xing_zi.essenceevolve.EssEntity.Projectile.TalismanEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.ThunderTalismanEntity;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 import java.util.function.Supplier;
@@ -92,25 +92,30 @@ public class EssEntityRegister {
 
 
 
-
-
-
-
-
-
-
 //这里注册的是Projectile
-    public static final RegistryObject<EntityType<TalismanEntity>> THUNDER_TALISMAN =
-            MOB_ENTITY_TYPES.register("thunder_talisman", new Supplier<EntityType<TalismanEntity>>() {
+    public static final RegistryObject<EntityType<ThunderTalismanEntity>> THUNDER_TALISMAN =
+            MOB_ENTITY_TYPES.register("thunder_talisman", new Supplier<EntityType<ThunderTalismanEntity>>() {
                 @Override
-                public EntityType<TalismanEntity> get() {
-                    return EntityType.Builder.<TalismanEntity>of(TalismanEntity::new, MobCategory.MISC)
+                public EntityType<ThunderTalismanEntity> get() {
+                    return EntityType.Builder.<ThunderTalismanEntity>of(ThunderTalismanEntity::new, MobCategory.MISC)
                             .sized(0.5f,0.3f)
                             .canSpawnFarFromPlayer()
                             .clientTrackingRange(32)
                             .build("thunder_talisman");
                 }
             });
+    public static final RegistryObject<EntityType<ThunderTalismanEntity>> WIND_TALISMAN =
+            MOB_ENTITY_TYPES.register("wind_talisman", new Supplier<EntityType<ThunderTalismanEntity>>() {
+                @Override
+                public EntityType<ThunderTalismanEntity> get() {
+                    return EntityType.Builder.<ThunderTalismanEntity>of(ThunderTalismanEntity::new, MobCategory.MISC)
+                            .sized(0.5f,0.3f)
+                            .canSpawnFarFromPlayer()
+                            .clientTrackingRange(32)
+                            .build("wind_talisman");
+                }
+            });
+
 
 
     public static void registerEntity(IEventBus bus) {

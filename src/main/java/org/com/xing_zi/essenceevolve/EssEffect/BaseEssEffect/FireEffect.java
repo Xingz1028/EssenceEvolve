@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.client.renderer.GameRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.FireEssenceMite.FireEssenceMiteEntity;
 
 import java.util.List;
 
@@ -20,25 +21,29 @@ public class FireEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
         Level level = pLivingEntity.level();
-        if (!level.isClientSide) {
-            // 灼烧、着火逻辑完全保留不动
-            pLivingEntity.setSecondsOnFire(4);
-            ServerLevel serverLevel = (ServerLevel) level;
-            for (int i = 0; i < 10; i++) {
-                // 替换 level.random，全身Y坐标
-                double x = pLivingEntity.getX() + (level.random.nextDouble() - 0.5D) * 0.7;
-                double y = pLivingEntity.getY() + (level.random.nextDouble() - 0.8D) * 1.8D;
-                double z = pLivingEntity.getZ() + (level.random.nextDouble() - 0.5D) * 0.7;
+        boolean flag = !(pLivingEntity instanceof FireEssenceMiteEntity);
+        if (flag) {
+            if (!level.isClientSide()) {
+                // 灼烧、着火逻辑完全保留不动
+                pLivingEntity.setSecondsOnFire(4);
+                ServerLevel serverLevel = (ServerLevel) level;
+                for (int i = 0; i < 10; i++) {
+                    // 替换 level.random，全身Y坐标
+                    double x = pLivingEntity.getX() + (level.random.nextDouble() - 0.5D) * 0.7;
+                    double y = pLivingEntity.getY() + (level.random.nextDouble() - 0.8D) * 1.8D;
+                    double z = pLivingEntity.getZ() + (level.random.nextDouble() - 0.5D) * 0.7;
 
-                // 烟雾低速，缓慢向上飘
-                double dx = (level.random.nextDouble() - 0.5D) * 0.15;
-                double dy = 0.04;
-                double dz = (level.random.nextDouble() - 0.5D) * 0.15;
+                    // 烟雾低速，缓慢向上飘
+                    double dx = (level.random.nextDouble() - 0.5D) * 0.15;
+                    double dy = 0.04;
+                    double dz = (level.random.nextDouble() - 0.5D) * 0.15;
 
-                // 服务端正确发包API
-                serverLevel.sendParticles(ParticleTypes.SMOKE, x, y, z, 1, dx, dy, dz, 0);
+                    // 服务端正确发包API
+                    serverLevel.sendParticles(ParticleTypes.SMOKE, x, y, z, 1, dx, dy, dz, 0);
+                }
             }
         }
+
     }
 
 

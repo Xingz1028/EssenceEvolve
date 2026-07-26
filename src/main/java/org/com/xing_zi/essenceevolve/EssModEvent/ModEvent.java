@@ -1,6 +1,7 @@
 package org.com.xing_zi.essenceevolve.EssModEvent;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -48,6 +49,9 @@ public class ModEvent {
             EntityRenderers.register(EssEntityRegister.FIRE_ESSENCE_MITE.get(), FireEssenceMiteEntityRenderer::new);
             EntityRenderers.register(EssEntityRegister.EARTH_ESSENCE_MITE.get(), EarthEssenceMiteEntityRenderer::new);
             EntityRenderers.register(EssEntityRegister.MITE_HERDER_WIZARD.get(), MiteHerderWizardEntityRenderer::new);
+
+            EntityRenderers.register(EssEntityRegister.THUNDER_TALISMAN.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(EssEntityRegister.WIND_TALISMAN.get(), ThrownItemRenderer::new);
         });
     }
     @SubscribeEvent
@@ -93,5 +97,10 @@ public class ModEvent {
         event.registerSpriteSet(EssParticleRegister.WATER_TYPE_TWO.get(), WaterType.Provider::new);
         event.registerSpriteSet(EssParticleRegister.WATER_TYPE_THREE.get(), WaterType.Provider::new);
         event.registerSpriteSet(EssParticleRegister.WATER_TYPE_FOUR.get(), WaterType.Provider::new);
+        event.registerSpriteSet(EssParticleRegister.THUNDER_PARTICLE.get(), Thunder.Provider::new);
+        event.registerSpriteSet(EssParticleRegister.WIND_PARTICLE.get(), Thunder.Provider::new);
+        event.registerSpriteSet(EssParticleRegister.THUNDER_FLY.get(), TalismanFlyAttack.Provider::new);
+        event.registerSpriteSet(EssParticleRegister.WIND_FLY.get(), TalismanFlyAttack.Provider::new);
+        event.registerSpriteSet(EssParticleRegister.FIRE_EXPLOSION.get(), FireExplosion.Provider::new);
     }
 }

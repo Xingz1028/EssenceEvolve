@@ -96,7 +96,7 @@ public class EssenceSword extends SwordItem {
                     double y = pPlayer.getEyeY() - 1; // 玩家胸口高度，原版标准
                     double z = pPlayer.getZ() + lookAngle.z;
                     serverLevel.sendParticles(jump_sweep_particle[value], x, y, z, 0, 0, 0, 0, 0);
-                    pPlayer.playSound(sounds[value], 3F, 3F);
+                    pTarget.playSound(sounds[value], 3F, 3F);
                 }
             }
 

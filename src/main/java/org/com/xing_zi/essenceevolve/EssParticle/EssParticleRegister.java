@@ -69,6 +69,22 @@ public class EssParticleRegister {
     public static final RegistryObject<SimpleParticleType> WATER_TYPE_FOUR =
             PARTICLES.register("water_type_four", () -> new SimpleParticleType(false));
 
+    //雷
+    public static final RegistryObject<SimpleParticleType> THUNDER_PARTICLE =
+            PARTICLES.register("thunder_particle", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> WIND_PARTICLE =
+            PARTICLES.register("wind_particle", () -> new SimpleParticleType(false));
+    //雷
+    public static final RegistryObject<SimpleParticleType> THUNDER_FLY =
+            PARTICLES.register("thunder_fly", () -> new SimpleParticleType(false));
+    //风
+    public static final RegistryObject<SimpleParticleType> WIND_FLY =
+            PARTICLES.register("wind_fly", () -> new SimpleParticleType(false));
+
+    //火
+    public static final RegistryObject<SimpleParticleType> FIRE_EXPLOSION =
+            PARTICLES.register("fire_explosion", () -> new SimpleParticleType(false));
+
 
 
 

@@ -1,7 +1,6 @@
 {
   "Essence Evolve": "Essence Evolve",
   "Essence Evolve Egg": "Essence Evolve Eggs",
-
   "item.essenceevolve.essence_vial": "essence vial",
   "item.essenceevolve.essence_vial_fire": "essence vial of fire",
   "item.essenceevolve.essence_vial_water": "essence vial of water",
@@ -19,9 +18,8 @@
   "item.essenceevolve.water_essence_stone": "Water Essence Stone",
   "item.essenceevolve.fire_essence_stone": "Fire Essence Stone",
   "item.essenceevolve.earth_essence_stone": "Earth Essence Stone",
-
-
-
+  "item.essenceevolve.thunder_talisman": "Thunder Talisman",
+  "item.essenceevolve.wind_talisman": "Wind Talisman",
   "effect.essenceevolve.metal_effect": "metal",
   "effect.essenceevolve.metal_beneficial_effect": "sharp metal ward",
   "effect.essenceevolve.wood_effect": "wood",
@@ -31,22 +29,15 @@
   "effect.essenceevolve.fire_effect": "fire",
   "effect.essenceevolve.ambient_fire_effect": "ambient fire",
   "effect.essenceevolve.earth_effect": "earth",
-  "effect.essenceevolve.light_effect": "light",
-
+  "effect.essenceevolve.wind_effect": "wind",
+  "effect.essenceevolve.thunder_effect": "thunder",
   "block.essenceevolve.essence_assembly_table": "essence assembly table",
   "block.essenceevolve.herb_cauldron": "Herb Cauldron",
-
-
-
-
   "effect.essenceevolve.steam_effect": "element vaporization",
   "effect.essenceevolve.mire_surge_effect": "mire surge",
   "effect.essenceevolve.cinder_silt_bind_effect": "cinder silt bind",
   "effect.essenceevolve.wood_and_water_effect": "wetwood lock jump",
   "effect.essenceevolve.high_fire_effect": "blaze inferno",
-
-
-
   "item.essenceevolve.metal_effect_sword": "sword of metal",
   "item.essenceevolve.wood_effect_sword": "sword of wood",
   "item.essenceevolve.water_effect_sword": "sword of water",
@@ -59,9 +50,11 @@
   "entity.essenceevolve.water_essence_mite": "Flowing Essence Mite",
   "entity.essenceevolve.fire_essence_mite": "Blaze Essence Mite",
   "entity.essenceevolve.earth_essence_mite": "Earth Essence Mite",
+  "entity.essenceevolve.mite_herder_wizard": "Mite Herder Wizard",
   "item.essenceevolve.metal_essence_mite_egg": "Metal Essence Mite Spawn Egg",
   "item.essenceevolve.wood_essence_mite_egg": "Wood Essence Mite Spawn Egg",
   "item.essenceevolve.water_essence_mite_egg": "Flowing Essence Mite Spawn Egg",
   "item.essenceevolve.fire_essence_mite_egg": "Blaze Essence Mite Spawn Egg",
-  "item.essenceevolve.earth_essence_mite_egg": "Earth Essence Mite Spawn Egg"
+  "item.essenceevolve.earth_essence_mite_egg": "Earth Essence Mite Spawn Egg",
+  "item.essenceevolve.mite_herder_wizard_egg": "Mite Herder Wizard Egg"
 }

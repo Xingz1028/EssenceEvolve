@@ -61,8 +61,8 @@ public class MiteHerderWizardEntityModel<T extends Entity> extends HierarchicalM
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch) {
 		//float pNetHeadYaw   // 头部水平左右旋转角度（偏航角，单位：度°）
 		//float pHeadPitch    // 头部上下俯仰角度（俯仰角，单位：度°）
-		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
-		pHeadPitch =  Mth.clamp(pHeadPitch, -25.0F, 45.0F);
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -15, 15.0F);
+		pHeadPitch =  Mth.clamp(pHeadPitch, -15, 15.0F);
 
 		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
 		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);

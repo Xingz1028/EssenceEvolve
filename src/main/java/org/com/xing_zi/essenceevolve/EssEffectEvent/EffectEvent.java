@@ -8,6 +8,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
+import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.EarthEssenceMite.EarthEssenceMiteEntity;
 
 
 import java.util.Objects;
@@ -17,7 +18,8 @@ public class EffectEvent {
     @SubscribeEvent
     public static void earthEffectTick(LivingEvent.LivingTickEvent event) {//缓慢这一块
         LivingEntity pLivingEntity = event.getEntity();
-        if (pLivingEntity.hasEffect(EssEffectRegister.EARTH_EFFECT.get())){
+        boolean flag = !(pLivingEntity instanceof EarthEssenceMiteEntity);
+        if (pLivingEntity.hasEffect(EssEffectRegister.EARTH_EFFECT.get()) && flag){
             int pAmplifier = Objects.requireNonNull(pLivingEntity.getEffect(EssEffectRegister.EARTH_EFFECT.get())).getAmplifier();
             pLivingEntity.setDeltaMovement(pLivingEntity.getDeltaMovement().multiply(0.8D - pAmplifier * 0.1D, 0.8D - pAmplifier * 0.1D, 0.8D - pAmplifier * 0.1D));
         }

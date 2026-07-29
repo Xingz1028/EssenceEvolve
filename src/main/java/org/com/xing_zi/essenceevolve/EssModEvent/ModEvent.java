@@ -12,6 +12,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntity;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntityModel;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntityRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.BallModel;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.EarthBallEntity.EarthBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.EarthBallEntity.EarthBallModel;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.EarthBallEntity.EarthBallRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.FireBallEntity.FireBallRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.WaterBallEntity.WaterBallRenderer;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.WindBallEntity.WindBallModel;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.WindBallEntity.WindBallRenderer;
 import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
 import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
 import org.com.xing_zi.essenceevolve.EssEntity.EssModelLayerRegister;
@@ -52,6 +60,10 @@ public class ModEvent {
 
             EntityRenderers.register(EssEntityRegister.THUNDER_TALISMAN.get(), ThrownItemRenderer::new);
             EntityRenderers.register(EssEntityRegister.WIND_TALISMAN.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(EssEntityRegister.FIRE_BALL_ENTITY.get(), FireBallRenderer::new);
+            EntityRenderers.register(EssEntityRegister.WATER_BALL_ENTITY.get(), WaterBallRenderer::new);
+            EntityRenderers.register(EssEntityRegister.EARTH_BALL_ENTITY.get(), EarthBallRenderer::new);
+            EntityRenderers.register(EssEntityRegister.WIND_BALL_ENTITY.get(), WindBallRenderer::new);
         });
     }
     @SubscribeEvent
@@ -71,6 +83,10 @@ public class ModEvent {
         event.registerLayerDefinition(EssModelLayerRegister.FIRE_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
         event.registerLayerDefinition(EssModelLayerRegister.EARTH_ESSENCE_MITE_LAYER, EssenceMiteEntityModel::createBodyLayer);
         event.registerLayerDefinition(EssModelLayerRegister.MITE_HERDER_WIZARD_LAYER, MiteHerderWizardEntityModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.FIRE_BALL_LAYER, BallModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.WATER_BALL_LAYER, BallModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.EARTH_BALL_LAYER, EarthBallModel::createBodyLayer);
+        event.registerLayerDefinition(EssModelLayerRegister.WIND_BALL_LAYER, WindBallModel::createBodyLayer);
     }
 
 

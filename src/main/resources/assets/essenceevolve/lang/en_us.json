@@ -18,8 +18,6 @@
   "item.essenceevolve.water_essence_stone": "Water Essence Stone",
   "item.essenceevolve.fire_essence_stone": "Fire Essence Stone",
   "item.essenceevolve.earth_essence_stone": "Earth Essence Stone",
-  "item.essenceevolve.thunder_talisman": "Thunder Talisman",
-  "item.essenceevolve.wind_talisman": "Wind Talisman",
   "effect.essenceevolve.metal_effect": "metal",
   "effect.essenceevolve.metal_beneficial_effect": "sharp metal ward",
   "effect.essenceevolve.wood_effect": "wood",
@@ -43,6 +41,12 @@
   "item.essenceevolve.water_effect_sword": "sword of water",
   "item.essenceevolve.fire_effect_sword": "sword of fire",
   "item.essenceevolve.earth_effect_sword": "sword of earth",
+  "item.essenceevolve.thunder_talisman": "Thunder Talisman",
+  "item.essenceevolve.wind_talisman": "Wind Talisman",
+  "item.essenceevolve.fire_wand": "Fire Wand",
+  "item.essenceevolve.water_wand": "Water Wand",
+  "item.essenceevolve.earth_wand": "Earth Wand",
+  "item.essenceevolve.wind_wand": "Wind Wand",
   "essence_assembly_table_menu": "Essence Assembly Table",
   "herb_cauldron_memu": "Herb Cauldron",
   "entity.essenceevolve.metal_essence_mite": "Metal Essence Mite",
@@ -56,5 +60,28 @@
   "item.essenceevolve.water_essence_mite_egg": "Flowing Essence Mite Spawn Egg",
   "item.essenceevolve.fire_essence_mite_egg": "Blaze Essence Mite Spawn Egg",
   "item.essenceevolve.earth_essence_mite_egg": "Earth Essence Mite Spawn Egg",
-  "item.essenceevolve.mite_herder_wizard_egg": "Mite Herder Wizard Egg"
+  "item.essenceevolve.mite_herder_wizard_egg": "Mite Herder Wizard Egg",
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "[Sharp Metal Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.": "§e[Sharp Metal Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.",
+  "[Nature Essence]: Applies Vine Bind debuff upon hitting enemies.": "§a[Nature Essence]: Applies Vine Bind debuff upon hitting enemies.",
+  "[Water Essence]: Applies Tidal Corroded Blade debuff upon hitting enemies.": "§b[Water Essence]: Applies Tidal Corroded Blade debuff upon hitting enemies.",
+  "[Flame Essence]: Applies Scorching Flame debuff upon hitting enemies.": "§c[Flame Essence]: Applies Scorching Flame debuff upon hitting enemies.",
+  "[Earth Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.": "§6[Earth Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.",
+
+  "[Sharp Metal Essence]：Applies Heavy Metal Infusion debuff upon hitting enemies.": "§e[Sharp Metal Essence]：Applies Heavy Metal Infusion debuff upon hitting enemies.",
+  "EssenceSword : Your weapon has only 5 durability left!!": "Your weapon has only 5 durability left!!",
+  "EssenceSword : 【Never Back Down】: The more attacks landed, the higher the stacked debuff level": "【Never Back Down】: The more attacks landed, the higher the stacked debuff level.",
+  "WandItem : Durability too low, cannot continue casting!": "Durability too low, cannot continue casting!"
 }

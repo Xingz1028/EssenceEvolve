@@ -1,6 +1,9 @@
 package org.com.xing_zi.essenceevolve.EssItem.EssSword;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -10,13 +13,15 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
@@ -24,9 +29,11 @@ import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
-public class EssenceSword extends SwordItem {
+public class EssenceSword extends Item {
+    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     private final SimpleParticleType[] jump_sweep_particle = {
             EssParticleRegister.METAL_JUMP_SWEEP.get(),
             EssParticleRegister.WOOD_JUMP_SWEEP.get(),
@@ -56,11 +63,12 @@ public class EssenceSword extends SwordItem {
             EssEffectRegister.FIRE_EFFECT.get(),
             EssEffectRegister.EARTH_EFFECT.get()};
     private final String[] essStr = {
-            "§e【锐金物蕴】：击中敌人施加重金灌注debuff",
-            "§a【自然物蕴】：击中敌人施加缠藤缚身debuff",
-            "§b【流水物蕴】：击中敌人施加流汐腐刃debuff",
-            "§c【烈火物蕴】：击中敌人施加灼焰焚身debuff",
-            "§6【大地物蕴】：击中敌人施加重金灌注debuff"};
+            "[Sharp Metal Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.",
+            "[Nature Essence]: Applies Vine Bind debuff upon hitting enemies.",
+            "[Water Essence]: Applies Tidal Corroded Blade debuff upon hitting enemies.",
+            "[Flame Essence]: Applies Scorching Flame debuff upon hitting enemies.",
+            "[Earth Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies."
+    };
     private int value;
     public static final int METAL_HARMFUL_EFFECT = 0;
     public static final int WOOD_HARMFUL_EFFECT = 1;
@@ -68,8 +76,12 @@ public class EssenceSword extends SwordItem {
     public static final int FIRE_EFFECT = 3;
     public static final int EARTH_EFFECT = 4;
 
-    public EssenceSword(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, int value) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    public EssenceSword(Properties pProperties, int value) {
+        super(pProperties);
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 4.0D, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2F, AttributeModifier.Operation.ADDITION));
+        this.defaultModifiers = builder.build();
         this.value = value;
     }
 
@@ -79,12 +91,27 @@ public class EssenceSword extends SwordItem {
         Level level = pAttacker.level();
         if (!level.isClientSide()) {
             if (pAttacker instanceof Player pPlayer) {
-                float attackStrengthScale = pPlayer.getAttackStrengthScale(0F);//方法 `getAttackStrengthScale(float pAdjustTicks)` 必须传一个 `float` 类型参数，这个参数是**插值帧偏移**，用来平滑渲染冷却进度。
+                //方法 `getAttackStrengthScale(float pAdjustTicks)` 必须传一个 `float` 类型参数，这个参数是**插值帧偏移**，用来平滑渲染冷却进度。
+                float attackStrengthScale = pPlayer.getAttackStrengthScale(0F);
                 Vec3 lookAngle = pAttacker.getLookAngle();
                 boolean onGroundAttack = attackStrengthScale >= 0.848F && pPlayer.onGround();
                 boolean jumpAttack = attackStrengthScale >= 0.848F && !pPlayer.onGround();
                 ServerLevel serverLevel = (ServerLevel) level;
                 if (onGroundAttack) {
+                    AABB boundingBox = pTarget.getBoundingBox();
+                    AABB inflate = boundingBox.inflate(1.5D, 1D, 1.5D);
+                    List<LivingEntity> entitiesOfClass = level.getEntitiesOfClass(LivingEntity.class, inflate);
+                    boolean[] flag = {false, false, false, true};
+                    Random random = new Random();
+                    for (LivingEntity livingEntity : entitiesOfClass) {
+                        if (livingEntity instanceof Player) {
+                            continue;
+                        }
+                        if (flag[random.nextInt(flag.length)]) {
+                            livingEntity.addEffect(new MobEffectInstance(essEffects[value], 40, 0));
+                        }
+                        livingEntity.hurt(livingEntity.damageSources().playerAttack(pPlayer), 1);
+                    }
                     double x = pPlayer.getX() + lookAngle.x;
                     double y = pPlayer.getEyeY() - 0.6; // 玩家胸口高度，原版标准
                     double z = pPlayer.getZ() + lookAngle.z;
@@ -98,6 +125,17 @@ public class EssenceSword extends SwordItem {
                     serverLevel.sendParticles(jump_sweep_particle[value], x, y, z, 0, 0, 0, 0, 0);
                     pTarget.playSound(sounds[value], 3F, 3F);
                 }
+                int damageValue = pStack.getDamageValue();
+                pStack.setDamageValue(damageValue + 1);
+                int newDamageValue = pStack.getDamageValue();
+                int maxDamage = pStack.getMaxDamage();
+                if (newDamageValue == maxDamage - 5){
+                    pPlayer.displayClientMessage(Component.translatable("EssenceSword : Your weapon has only 5 durability left!!").withStyle(ChatFormatting.RED),true);
+                }
+                if (newDamageValue >= maxDamage){
+                    pStack.shrink(1);
+                    pPlayer.playSound(SoundEvents.ITEM_BREAK,1,1);
+                }
             }
 
         }
@@ -108,42 +146,44 @@ public class EssenceSword extends SwordItem {
         UUID lastTargetUuid;
 
         long currentTick = pAttacker.tickCount;
-        long lastHitTick = tag.getLong("combo_tick");
+        long lastHitTick = tag.getLong("essenceevolve:combo_tick");
         final long COMBO_TIMEOUT = 40; // 20tick=1秒，40=2秒
 
-        if (tag.hasUUID("combo_target")) {
-            lastTargetUuid = tag.getUUID("combo_target");
+        if (tag.hasUUID("essenceevolve:combo_target")) {
+            lastTargetUuid = tag.getUUID("essenceevolve:combo_target");
         } else {
             lastTargetUuid = null;
         }
         int num;
         if (lastTargetUuid == null || !lastTargetUuid.equals(targetUuid) || currentTick - lastHitTick > COMBO_TIMEOUT) {
             num = 0;
-            tag.putUUID("combo_target", targetUuid);
+            tag.putUUID("essenceevolve:combo_target", targetUuid);
         } else {
-            num = tag.getInt("combo_num");
+            num = tag.getInt("essenceevolve:combo_num");
         }
         num++;
-        tag.putInt("combo_num", num);
-        tag.putLong("combo_tick", currentTick);
+        tag.putInt("essenceevolve:combo_num", num);
+        tag.putLong("essenceevolve:combo_tick", currentTick);
         if (num == 1) {
             pTarget.addEffect(new MobEffectInstance(essEffects[value], 100, 0, false, true));
         } else if (num == 3) {
             pTarget.addEffect(new MobEffectInstance(essEffects[value], 100, 1, false, true));
-        } else if (num >= 4) {
+        } else if (num >= 5) {
             pTarget.addEffect(new MobEffectInstance(essEffects[value], 100, 2, false, true));
         }
-
-
         return super.hurtEnemy(pStack, pTarget, pAttacker);
     }
-
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
         tooltip.add(Component.literal("EssSword"));
-        tooltip.add(Component.literal(essStr[value]));
-        tooltip.add(Component.literal("【越战越勇】：攻击次数越多，debuff等级叠加越高").withStyle(ChatFormatting.YELLOW));
+        tooltip.add(Component.translatable(essStr[value]));
+        tooltip.add(Component.translatable("EssenceSword : 【Never Back Down】: The more attacks landed, the higher the stacked debuff level").withStyle(ChatFormatting.YELLOW));
+    }
+
+    @Override
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pSlot) {
+        return pSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pSlot);
     }
 }

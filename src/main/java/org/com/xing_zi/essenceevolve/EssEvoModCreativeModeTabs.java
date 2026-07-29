@@ -42,6 +42,10 @@ public class EssEvoModCreativeModeTabs {
                     creative.accept(EssItemRegister.EARTH_EFFECT_SWORD.get());
                     creative.accept(EssItemRegister.THUNDER_TALISMAN.get());
                     creative.accept(EssItemRegister.WIND_TALISMAN.get());
+                    creative.accept(EssItemRegister.WATER_WAND.get());
+                    creative.accept(EssItemRegister.FIRE_WAND.get());
+                    creative.accept(EssItemRegister.EARTH_WAND.get());
+                    creative.accept(EssItemRegister.WIND_WAND.get());
                     creative.accept(EssBlockRegister.ESSENCE_ASSEMBLY_TABLE.get());
                     creative.accept(EssBlockRegister.HERB_CAULDRON.get());
                 }).build());

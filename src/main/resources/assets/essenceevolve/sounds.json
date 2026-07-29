@@ -38,5 +38,10 @@
     "sounds": [
       "essenceevolve:talisman_fly"
     ]
+  },
+  "wand": {
+    "sounds": [
+      "essenceevolve:wand"
+    ]
   }
 }

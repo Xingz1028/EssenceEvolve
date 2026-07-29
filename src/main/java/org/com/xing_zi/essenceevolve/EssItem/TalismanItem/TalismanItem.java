@@ -10,8 +10,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.com.xing_zi.essenceevolve.EssEntity.Projectile.ThunderTalismanEntity;
-import org.com.xing_zi.essenceevolve.EssEntity.Projectile.WindTalismanEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.FireBallEntity.FireBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Talisman.ThunderTalismanEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Talisman.WindTalismanEntity;
 import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
 import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
 
@@ -42,6 +43,12 @@ public class TalismanItem extends Item {
                 windTalismanEntity.setItem(handItem);
                 windTalismanEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
                 pLevel.addFreshEntity(windTalismanEntity);
+            }
+            if (particleTypeNum == 2){
+                FireBallEntity fireBallEntity = new FireBallEntity(pPlayer, pLevel);
+                fireBallEntity.setItem(handItem);
+                fireBallEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
+                pLevel.addFreshEntity(fireBallEntity);
             }
             ServerLevel serverLevel = (ServerLevel) pLevel;
             Vec3 lookAngle = pPlayer.getLookAngle();

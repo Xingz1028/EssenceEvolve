@@ -2,7 +2,7 @@ package org.com.xing_zi.essenceevolve.EssItem;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.Tiers;
+
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,6 +12,7 @@ import org.com.xing_zi.essenceevolve.EssItem.EssenceVial.EssenceVial;
 import org.com.xing_zi.essenceevolve.EssItem.MySpawnEggItem.MySpawnEggItem;
 import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
 import org.com.xing_zi.essenceevolve.EssItem.TalismanItem.TalismanItem;
+import org.com.xing_zi.essenceevolve.EssItem.WandItem.WandItem;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 public class EssItemRegister {
@@ -46,26 +47,30 @@ public class EssItemRegister {
 
     //剑类
     public static final RegistryObject<Item> METAL_EFFECT_SWORD =
-            ESS_ITEMS.register("metal_effect_sword",() -> new EssenceSword(Tiers.IRON,1,-2F,
-                    new Item.Properties().stacksTo(1),EssenceSword.METAL_HARMFUL_EFFECT));
+            ESS_ITEMS.register("metal_effect_sword",() -> new EssenceSword(new Item.Properties().durability(300),EssenceSword.METAL_HARMFUL_EFFECT));
     public static final RegistryObject<Item> WOOD_EFFECT_SWORD =
-            ESS_ITEMS.register("wood_effect_sword",() -> new EssenceSword(Tiers.IRON,1,-2F,
-                    new Item.Properties().stacksTo(1),EssenceSword.WOOD_HARMFUL_EFFECT));
+            ESS_ITEMS.register("wood_effect_sword",() -> new EssenceSword(new Item.Properties().durability(300),EssenceSword.WOOD_HARMFUL_EFFECT));
     public static final RegistryObject<Item> WATER_EFFECT_SWORD =
-            ESS_ITEMS.register("water_effect_sword",() -> new EssenceSword(Tiers.IRON,1,-2F,
-                    new Item.Properties().stacksTo(1),EssenceSword.WATER_EFFECT));
+            ESS_ITEMS.register("water_effect_sword",() -> new EssenceSword(new Item.Properties().durability(300),EssenceSword.WATER_EFFECT));
     public static final RegistryObject<Item> FIRE_EFFECT_SWORD =
-            ESS_ITEMS.register("fire_effect_sword",() -> new EssenceSword(Tiers.IRON,1,-2F,
-                    new Item.Properties().stacksTo(1),EssenceSword.FIRE_EFFECT));
+            ESS_ITEMS.register("fire_effect_sword",() -> new EssenceSword(new Item.Properties().durability(300),EssenceSword.FIRE_EFFECT));
     public static final RegistryObject<Item> EARTH_EFFECT_SWORD =
-            ESS_ITEMS.register("earth_effect_sword",() -> new EssenceSword(Tiers.IRON,1,-2F,
-                    new Item.Properties().stacksTo(1),EssenceSword.EARTH_EFFECT));
+            ESS_ITEMS.register("earth_effect_sword",() -> new EssenceSword(new Item.Properties().durability(300),EssenceSword.EARTH_EFFECT));
     //符
     public static final RegistryObject<Item> THUNDER_TALISMAN =
             ESS_ITEMS.register("thunder_talisman",() -> new TalismanItem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(8),1));
     //符
     public static final RegistryObject<Item> WIND_TALISMAN =
             ESS_ITEMS.register("wind_talisman",() -> new TalismanItem(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(8),0));
+    //法杖
+    public static final RegistryObject<Item> WATER_WAND =
+            ESS_ITEMS.register("water_wand",() -> new WandItem(new Item.Properties().durability(500).rarity(Rarity.UNCOMMON),WandItem.WATER_WAND));
+    public static final RegistryObject<Item> FIRE_WAND =
+            ESS_ITEMS.register("fire_wand",() -> new WandItem(new Item.Properties().durability(500).rarity(Rarity.UNCOMMON),WandItem.FIRE_WAND));
+    public static final RegistryObject<Item> EARTH_WAND =
+            ESS_ITEMS.register("earth_wand",() -> new WandItem(new Item.Properties().durability(500).rarity(Rarity.UNCOMMON),WandItem.EARTH_WAND));
+    public static final RegistryObject<Item> WIND_WAND =
+            ESS_ITEMS.register("wind_wand",() -> new WandItem(new Item.Properties().durability(500).rarity(Rarity.UNCOMMON),WandItem.WIND_WAND));
 
     public static final RegistryObject<Item> DIM_BLADE =
             ESS_ITEMS.register("dim_blade",() -> new Item(new Item.Properties().stacksTo(1)));

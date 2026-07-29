@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.EssEntity.Projectile;
+package org.com.xing_zi.essenceevolve.EssEntity.Projectile.Talisman;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -40,7 +40,7 @@ public class WindTalismanEntity extends ThrowableItemProjectile {
         Level level = this.level();
         if (entity instanceof LivingEntity pLivingEntity) {
             pLivingEntity.hurt(this.damageSources().thrown(this, this.getOwner()), 5F);
-            pLivingEntity.addEffect(new MobEffectInstance(EssEffectRegister.WIND_EFFECT.get(), 10, 2));
+            pLivingEntity.addEffect(new MobEffectInstance(EssEffectRegister.WIND_EFFECT.get(), 10, 4));
             if (!level.isClientSide()) {
                 ServerLevel serverLevel = (ServerLevel) level;
                 for (int i = 0; i < 10; i++) {

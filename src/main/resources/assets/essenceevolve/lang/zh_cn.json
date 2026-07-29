@@ -18,8 +18,6 @@
   "item.essenceevolve.water_essence_stone": "流水蕴石",
   "item.essenceevolve.fire_essence_stone": "烈焰蕴石",
   "item.essenceevolve.earth_essence_stone": "大地蕴石",
-  "item.essenceevolve.thunder_talisman": "雷符",
-  "item.essenceevolve.wind_talisman": "风符",
   "effect.essenceevolve.metal_effect": "金",
   "effect.essenceevolve.metal_beneficial_effect": "锐金护持",
   "effect.essenceevolve.wood_effect": "木",
@@ -43,6 +41,12 @@
   "item.essenceevolve.water_effect_sword": "流水物蕴之剑",
   "item.essenceevolve.fire_effect_sword": "烈焰物蕴之剑",
   "item.essenceevolve.earth_effect_sword": "大地物蕴之剑",
+  "item.essenceevolve.thunder_talisman": "雷符",
+  "item.essenceevolve.wind_talisman": "风符",
+  "item.essenceevolve.fire_wand": "烈焰之杖",
+  "item.essenceevolve.water_wand": "流水之杖",
+  "item.essenceevolve.earth_wand": "大地法杖",
+  "item.essenceevolve.wind_wand": "疾风法杖",
   "essence_assembly_table_menu": "物蕴装配台",
   "herb_cauldron_memu": "熬药锅",
   "entity.essenceevolve.metal_essence_mite": "金属蕴质螨",
@@ -56,5 +60,17 @@
   "item.essenceevolve.water_essence_mite_egg": "水系蕴质螨刷怪蛋",
   "item.essenceevolve.fire_essence_mite_egg": "烈焰蕴质螨刷怪蛋",
   "item.essenceevolve.earth_essence_mite_egg": "大地蕴质螨刷怪蛋",
-  "item.essenceevolve.mite_herder_wizard_egg": "蕴质螨巫师刷怪蛋"
+  "item.essenceevolve.mite_herder_wizard_egg": "蕴质螨巫师刷怪蛋",
+
+
+  "[Sharp Metal Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.": "§e【锐金物蕴】：击中敌人时施加重金灌注debuff",
+  "[Nature Essence]: Applies Vine Bind debuff upon hitting enemies.": "§a【自然物蕴】：击中敌人施加缠藤缚身debuff",
+  "[Water Essence]: Applies Tidal Corroded Blade debuff upon hitting enemies.": "§b【流水物蕴】：击中敌人施加流汐腐刃debuff",
+  "[Flame Essence]: Applies Scorching Flame debuff upon hitting enemies.": "§c【烈火物蕴】：击中敌人施加灼焰焚身debuff",
+  "[Earth Essence]: Applies Heavy Metal Infusion debuff upon hitting enemies.": "§6【大地物蕴】：击中敌人施加重金灌注debuff",
+
+  "[Sharp Metal Essence]：Applies Heavy Metal Infusion debuff upon hitting enemies.": "§e【锐金物蕴】：击中敌人施加重金灌注 debuff",
+  "EssenceSword : Your weapon has only 5 durability left!!": "你的武器耐久仅剩 5 点！！！",
+  "EssenceSword : 【Never Back Down】: The more attacks landed, the higher the stacked debuff level": "【越战越勇】：攻击次数越多，debuff 等级叠加越高",
+  "WandItem : Durability too low, cannot continue casting!": "耐久过低，无法继续施法！"
 }

@@ -12,7 +12,11 @@ import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.MetalEssenceM
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WaterEssenceMite.WaterEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.EssenceMite.WoodEssenceMite.WoodEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.EssEntity.Monster.MiteHerderWizard.MiteHerderWizardEntity;
-import org.com.xing_zi.essenceevolve.EssEntity.Projectile.ThunderTalismanEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.EarthBallEntity.EarthBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.FireBallEntity.FireBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.WaterBallEntity.WaterBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Ball.WindBallEntity.WindBallEntity;
+import org.com.xing_zi.essenceevolve.EssEntity.Projectile.Talisman.ThunderTalismanEntity;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
 
 import java.util.function.Supplier;
@@ -113,6 +117,50 @@ public class EssEntityRegister {
                             .canSpawnFarFromPlayer()
                             .clientTrackingRange(32)
                             .build("wind_talisman");
+                }
+            });
+    public static final RegistryObject<EntityType<WaterBallEntity>> WATER_BALL_ENTITY =
+            MOB_ENTITY_TYPES.register("water_ball_entity", new Supplier<EntityType<WaterBallEntity>>() {
+                @Override
+                public EntityType<WaterBallEntity> get() {
+                    return EntityType.Builder.<WaterBallEntity>of(WaterBallEntity::new, MobCategory.MISC)
+                            .sized(0.3f,0.3f)
+                            .canSpawnFarFromPlayer()
+                            .clientTrackingRange(32)
+                            .build("water_ball_entity");
+                }
+            });
+    public static final RegistryObject<EntityType<FireBallEntity>> FIRE_BALL_ENTITY =
+            MOB_ENTITY_TYPES.register("fire_ball_entity", new Supplier<EntityType<FireBallEntity>>() {
+                @Override
+                public EntityType<FireBallEntity> get() {
+                    return EntityType.Builder.<FireBallEntity>of(FireBallEntity::new, MobCategory.MISC)
+                            .sized(0.3f,0.3f)
+                            .canSpawnFarFromPlayer()
+                            .clientTrackingRange(32)
+                            .build("fire_ball_entity");
+                }
+            });
+    public static final RegistryObject<EntityType<EarthBallEntity>> EARTH_BALL_ENTITY =
+            MOB_ENTITY_TYPES.register("earth_ball_entity", new Supplier<EntityType<EarthBallEntity>>() {
+                @Override
+                public EntityType<EarthBallEntity> get() {
+                    return EntityType.Builder.<EarthBallEntity>of(EarthBallEntity::new, MobCategory.MISC)
+                            .sized(0.3f,0.3f)
+                            .canSpawnFarFromPlayer()
+                            .clientTrackingRange(32)
+                            .build("earth_ball_entity");
+                }
+            });
+    public static final RegistryObject<EntityType<WindBallEntity>> WIND_BALL_ENTITY =
+            MOB_ENTITY_TYPES.register("wind_ball_entity", new Supplier<EntityType<WindBallEntity>>() {
+                @Override
+                public EntityType<WindBallEntity> get() {
+                    return EntityType.Builder.<WindBallEntity>of(WindBallEntity::new, MobCategory.MISC)
+                            .sized(0.3f,0.3f)
+                            .canSpawnFarFromPlayer()
+                            .clientTrackingRange(32)
+                            .build("wind_ball_entity");
                 }
             });
 

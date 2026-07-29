@@ -1,0 +1,52 @@
+package org.com.xing_zi.essenceevolve.entity.projectile.ball.EarthBallEntity;// Made with Blockbench 5.1.6
+// Exported for Minecraft version 1.17 or later with Mojang mappings
+// Paste this class into your mod and generate all required imports
+
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.world.entity.Entity;
+
+public class EarthBallModel<T extends Entity> extends HierarchicalModel<T> {
+	private final ModelPart bone;
+	private final ModelPart root;
+
+	public EarthBallModel(ModelPart root) {
+		this.bone = root.getChild("bone");
+        this.root = root;
+    }
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(4, 0).addBox(-1.0F, -6.0F, -1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 2).addBox(-3.0F, -8.0F, 1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 4).addBox(0.0F, -8.0F, -2.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 6).addBox(1.0F, -7.0F, 1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(4, 4).addBox(-3.0F, -7.0F, -2.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(4, 2).addBox(-2.0F, -6.0F, 1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 0).addBox(-1.0F, -9.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 8, 8);
+	}
+
+	@Override
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		bone.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return root;
+	}
+}

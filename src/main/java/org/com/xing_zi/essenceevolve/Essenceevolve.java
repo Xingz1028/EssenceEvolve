@@ -16,15 +16,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.com.xing_zi.essenceevolve.EssBlockEntity.EssBlockEntitiesRegister;
-import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
-import org.com.xing_zi.essenceevolve.EssMenuType.EssMenuRegister;
-import org.com.xing_zi.essenceevolve.EssEntity.EssEntityRegister;
-import org.com.xing_zi.essenceevolve.EssParticle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.EssEffect.EssEffectRegister;
-import org.com.xing_zi.essenceevolve.EssSounds.EssSoundRegister;
-import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
-import org.com.xing_zi.essenceevolve.EssRecipe.EssRecipesRegister;
+import org.com.xing_zi.essenceevolve.block_entity.EssBlockEntitiesRegister;
+import org.com.xing_zi.essenceevolve.items.EssItemRegister;
+import org.com.xing_zi.essenceevolve.menu.EssMenuRegister;
+import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
+import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
+import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.block.EssBlockRegister;
+import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
 import org.slf4j.Logger;
 
 // 此处填写的modid必须和META-INF/mods.toml文件内配置一致

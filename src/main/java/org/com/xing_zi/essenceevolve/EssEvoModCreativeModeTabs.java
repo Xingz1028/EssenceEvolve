@@ -7,8 +7,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import org.com.xing_zi.essenceevolve.EssBlock.EssBlockRegister;
-import org.com.xing_zi.essenceevolve.EssItem.EssItemRegister;
+import org.com.xing_zi.essenceevolve.block.EssBlockRegister;
+import org.com.xing_zi.essenceevolve.items.EssItemRegister;
 
 public class EssEvoModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =

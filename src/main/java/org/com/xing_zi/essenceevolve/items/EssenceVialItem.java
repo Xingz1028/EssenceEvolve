@@ -129,7 +129,6 @@ public class EssenceVialItem extends Item {
             Blocks.ROOTED_DIRT,
             Blocks.MYCELIUM,
             Blocks.FARMLAND,
-
             // 红砂岩、各色陶瓦
             Blocks.RED_SAND,
             Blocks.RED_SANDSTONE,
@@ -212,7 +211,9 @@ public class EssenceVialItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         //因为这些逻辑是跑在服务端的，所以要对客户端做一个判断，如果是客户端就不运行代码，直接返回PASS
-
+        if (context.getLevel().isClientSide()){
+            return InteractionResult.PASS;
+        }
 
         //创建玩家对象
         Player player = context.getPlayer();

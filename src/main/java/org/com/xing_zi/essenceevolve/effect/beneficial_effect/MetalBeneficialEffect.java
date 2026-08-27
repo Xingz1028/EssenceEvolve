@@ -12,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,17 +22,6 @@ public class MetalBeneficialEffect extends MobEffect {
     private static final UUID ARMOR_MOD_UUID = UUID.fromString("12345678-1234-5678-1234-567812345678");
     // 护甲加成数值常量
     private static final double ARMOR_BONUS = 2.0D;
-
-    protected MetalBeneficialEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
-        addAttributeModifier(
-                Attributes.ARMOR,
-                ARMOR_MOD_UUID.toString(),
-                ARMOR_BONUS,
-                AttributeModifier.Operation.ADDITION
-        );
-    }
-
     public MetalBeneficialEffect() {
         // 增益效果，亮黄色
         super(MobEffectCategory.BENEFICIAL, 0xfffdb2);
@@ -44,7 +34,7 @@ public class MetalBeneficialEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+    public void applyEffectTick(@NotNull LivingEntity pLivingEntity, int pAmplifier) {
         // 父类逻辑优先执行
         super.applyEffectTick(pLivingEntity, pAmplifier);
 
@@ -75,7 +65,7 @@ public class MetalBeneficialEffect extends MobEffect {
                 double pz = pLivingEntity.getZ() + (level.random.nextDouble() - 0.5D) * 0.7D;
 
                 // 服务端标准粒子发包方法
-                serverLevel.sendParticles(ParticleTypes.FLASH, px, py, pz, 1, velX, velY, velZ, 0.0D);
+                serverLevel.sendParticles(ParticleTypes.END_ROD, px, py, pz, 1, velX, velY, velZ, 0.0D);
             }
         }
     }

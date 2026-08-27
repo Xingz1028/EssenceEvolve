@@ -18,11 +18,13 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.com.xing_zi.essenceevolve.block_entity.EssBlockEntitiesRegister;
 import org.com.xing_zi.essenceevolve.items.EssItemRegister;
+import org.com.xing_zi.essenceevolve.items.herb.tip.HerbToolTipRegister;
+import org.com.xing_zi.essenceevolve.items.herb.tip.type.*;
 import org.com.xing_zi.essenceevolve.menu.EssMenuRegister;
 import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
 import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 import org.com.xing_zi.essenceevolve.block.EssBlockRegister;
 import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
 import org.slf4j.Logger;
@@ -58,6 +60,15 @@ public class Essenceevolve {
         modEventBus.addListener(this::addCreative);
         // 注册模组配置文件，让Forge自动生成并加载配置
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        //注册药物属性词条
+        HerbToolTipRegister.register(new Time());
+        HerbToolTipRegister.register(new Metal());
+        HerbToolTipRegister.register(new Wood());
+        HerbToolTipRegister.register(new Water());
+        HerbToolTipRegister.register(new Fire());
+        HerbToolTipRegister.register(new Earth());
+        HerbToolTipRegister.register(new Wind());
+        HerbToolTipRegister.register(new Thunder());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

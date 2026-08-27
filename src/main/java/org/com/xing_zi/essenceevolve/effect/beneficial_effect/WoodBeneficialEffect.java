@@ -8,20 +8,17 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class WoodBeneficialEffect extends MobEffect {
-    protected WoodBeneficialEffect(MobEffectCategory pCategory, int pColor) {
-        super(MobEffectCategory.BENEFICIAL, 0x00ff0f);
-    }
-
     public WoodBeneficialEffect() {
         super(MobEffectCategory.BENEFICIAL, 0x00ff0f);
     }
 
     @Override
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+    public void applyEffectTick(@NotNull LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
         if (pLivingEntity instanceof Player pPlayer) {
             Level level = pLivingEntity.level();

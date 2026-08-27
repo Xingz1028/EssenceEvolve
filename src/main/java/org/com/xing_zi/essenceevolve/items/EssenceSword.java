@@ -23,8 +23,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -87,57 +87,6 @@ public class EssenceSword extends Item {
 
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        Level level = pAttacker.level();
-        if (!level.isClientSide()) {
-            if (pAttacker instanceof Player pPlayer) {
-                //方法 `getAttackStrengthScale(float pAdjustTicks)` 必须传一个 `float` 类型参数，这个参数是**插值帧偏移**，用来平滑渲染冷却进度。
-                float attackStrengthScale = pPlayer.getAttackStrengthScale(0F);
-                Vec3 lookAngle = pAttacker.getLookAngle();
-                boolean onGroundAttack = attackStrengthScale >= 0.848F && pPlayer.onGround();
-                boolean jumpAttack = attackStrengthScale >= 0.848F && !pPlayer.onGround();
-                ServerLevel serverLevel = (ServerLevel) level;
-                if (onGroundAttack) {
-                    AABB boundingBox = pTarget.getBoundingBox();
-                    AABB inflate = boundingBox.inflate(1.5D, 1D, 1.5D);
-                    List<LivingEntity> entitiesOfClass = level.getEntitiesOfClass(LivingEntity.class, inflate);
-                    boolean[] flag = {false, false, false, true};
-                    Random random = new Random();
-                    for (LivingEntity livingEntity : entitiesOfClass) {
-                        if (livingEntity instanceof Player) {
-                            continue;
-                        }
-                        if (flag[random.nextInt(flag.length)]) {
-                            livingEntity.addEffect(new MobEffectInstance(essEffects[value], 40, 0));
-                        }
-                        livingEntity.hurt(livingEntity.damageSources().playerAttack(pPlayer), 1);
-                    }
-                    double x = pPlayer.getX() + lookAngle.x;
-                    double y = pPlayer.getEyeY() - 0.6; // 玩家胸口高度，原版标准
-                    double z = pPlayer.getZ() + lookAngle.z;
-                    serverLevel.sendParticles(pType[value], x, y, z, 0, 0, 0, 0, 0);
-                    pTarget.playSound(sounds[value], 1.5F, 1.5F);
-                }
-                if (jumpAttack) {
-                    double x = pPlayer.getX() + lookAngle.x;
-                    double y = pPlayer.getEyeY() - 1; // 玩家胸口高度，原版标准
-                    double z = pPlayer.getZ() + lookAngle.z;
-                    serverLevel.sendParticles(jump_sweep_particle[value], x, y, z, 0, 0, 0, 0, 0);
-                    pTarget.playSound(sounds[value], 3F, 3F);
-                }
-                int damageValue = pStack.getDamageValue();
-                pStack.setDamageValue(damageValue + 1);
-                int newDamageValue = pStack.getDamageValue();
-                int maxDamage = pStack.getMaxDamage();
-                if (newDamageValue == maxDamage - 5){
-                    pPlayer.displayClientMessage(Component.translatable("EssenceSword : Your weapon has only 5 durability left!!").withStyle(ChatFormatting.RED),true);
-                }
-                if (newDamageValue >= maxDamage){
-                    pStack.shrink(1);
-                    pPlayer.playSound(SoundEvents.ITEM_BREAK,1,1);
-                }
-            }
-
-        }
         //ItemStack 核心 NBT 方法
         // 安全获取/创建NBT，直接写入数据
         CompoundTag tag = pStack.getOrCreateTag();
@@ -163,6 +112,63 @@ public class EssenceSword extends Item {
         num++;
         tag.putInt("essenceevolve:combo_num", num);
         tag.putLong("essenceevolve:combo_tick", currentTick);
+        Level level = pAttacker.level();
+        if (!level.isClientSide()) {
+            if (pAttacker instanceof Player pPlayer) {
+                //方法 `getAttackStrengthScale(float pAdjustTicks)` 必须传一个 `float` 类型参数，这个参数是**插值帧偏移**，用来平滑渲染冷却进度。
+                float attackStrengthScale = pPlayer.getAttackStrengthScale(0F);
+                Vec3 lookAngle = pAttacker.getLookAngle();
+                boolean onGroundAttack = attackStrengthScale >= 0.848F && pPlayer.onGround();
+                boolean jumpAttack = attackStrengthScale >= 0.848F && !pPlayer.onGround();
+                ServerLevel serverLevel = (ServerLevel) level;
+                if (onGroundAttack) {
+                    attack(pTarget, num);
+                    AABB boundingBox = pTarget.getBoundingBox();
+                    AABB inflate = boundingBox.inflate(1.5D, 1D, 1.5D);
+                    List<LivingEntity> entitiesOfClass = level.getEntitiesOfClass(LivingEntity.class, inflate);
+                    boolean[] flag = {false, false, false, true};
+                    Random random = new Random();
+                    for (LivingEntity livingEntity : entitiesOfClass) {
+                        if (livingEntity instanceof Player) {
+                            continue;
+                        }
+                        if (flag[random.nextInt(flag.length)]) {
+                            livingEntity.addEffect(new MobEffectInstance(essEffects[value], 40, 0));
+                        }
+                        livingEntity.hurt(livingEntity.damageSources().playerAttack(pPlayer), 1);
+                    }
+                    double x = pPlayer.getX() + lookAngle.x*2.5;
+                    double y = pPlayer.getEyeY() - 0.6; // 玩家胸口高度，原版标准
+                    double z = pPlayer.getZ() + lookAngle.z*2.5;
+                    serverLevel.sendParticles(pType[value], x, y, z, 0, 0, 0, 0, 0);
+                    pTarget.playSound(sounds[value], 1.5F, 1.5F);
+                }
+                if (jumpAttack) {
+                    attack(pTarget, num);
+                    double x = pPlayer.getX() + lookAngle.x*2.5;
+                    double y = pPlayer.getEyeY() - 1; // 玩家胸口高度，原版标准
+                    double z = pPlayer.getZ() + lookAngle.z*2.5;
+                    serverLevel.sendParticles(jump_sweep_particle[value], x, y, z, 0, 0, 0, 0, 0);
+                    pTarget.playSound(sounds[value], 3F, 3F);
+                }
+                int damageValue = pStack.getDamageValue();
+                pStack.setDamageValue(damageValue + 1);
+                int newDamageValue = pStack.getDamageValue();
+                int maxDamage = pStack.getMaxDamage();
+                if (newDamageValue == maxDamage - 5){
+                    pPlayer.displayClientMessage(Component.translatable("EssenceSword : Your weapon has only 5 durability left!!").withStyle(ChatFormatting.DARK_RED),true);
+                }
+                if (newDamageValue >= maxDamage){
+                    pStack.shrink(1);
+                    pPlayer.playSound(SoundEvents.ITEM_BREAK,1,1);
+                }
+            }
+
+        }
+        return super.hurtEnemy(pStack, pTarget, pAttacker);
+    }
+
+    private void attack(LivingEntity pTarget, int num) {
         if (num == 1) {
             pTarget.addEffect(new MobEffectInstance(essEffects[value], 100, 0, false, true));
         } else if (num == 3) {
@@ -170,7 +176,6 @@ public class EssenceSword extends Item {
         } else if (num >= 5) {
             pTarget.addEffect(new MobEffectInstance(essEffects[value], 100, 2, false, true));
         }
-        return super.hurtEnemy(pStack, pTarget, pAttacker);
     }
 
     @Override

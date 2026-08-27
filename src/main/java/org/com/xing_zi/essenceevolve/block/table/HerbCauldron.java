@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.com.xing_zi.essenceevolve.block_entity.EssBlockEntitiesRegister;
-import org.com.xing_zi.essenceevolve.block_entity.herb_cauldron.HerbCauldronBlockEntity;
+import org.com.xing_zi.essenceevolve.block_entity.HerbCauldronBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -45,10 +45,8 @@ public class HerbCauldron extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof HerbCauldronBlockEntity hcA) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, hcA, buf -> buf.writeBlockPos(pPos));
-            } else {
-                throw new IllegalStateException("Missing Container!");
+            if (blockEntity instanceof HerbCauldronBlockEntity herbCauldronBlockEntity) {
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, herbCauldronBlockEntity, buf -> buf.writeBlockPos(pPos));
             }
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
@@ -151,10 +149,9 @@ public class HerbCauldron extends BaseEntityBlock {
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public @Nullable VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return switch (pState.getValue(FACING)) {
-            case DOWN -> null;
-            case UP -> null;
+            case DOWN, UP -> null;
             case NORTH -> SHAPE_N;
             case SOUTH -> SHAPE_S;
             case WEST -> SHAPE_W;
@@ -224,7 +221,6 @@ public class HerbCauldron extends BaseEntityBlock {
                                 serverLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, y, z, 1, dx, dy, dz, 0D);
                             }
                         }
-
                     }
                 }
             }

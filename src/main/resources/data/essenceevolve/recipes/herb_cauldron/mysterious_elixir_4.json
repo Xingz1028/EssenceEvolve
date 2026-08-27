@@ -1,0 +1,13 @@
+{
+  "type": "essenceevolve:herb_cauldron_recipe_serializer",
+  "ingredients": [
+    {"tag": "essenceevolve:herb"},
+    {"tag": "essenceevolve:herb"},
+    {"tag": "essenceevolve:herb"},
+    {"tag": "essenceevolve:herb"}
+  ],
+  "output": {
+    "item": "essenceevolve:mysterious_elixir",
+    "count": 1
+  }
+}

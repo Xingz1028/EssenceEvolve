@@ -10,23 +10,24 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.water_essence_mite.WaterEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
 
 import java.util.List;
 import java.util.UUID;
 
 public class WaterEffect extends MobEffect {
-    public static final UUID WATER_EFFECT_ATTACK_DAMAGE = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
     public static final UUID WATER_EFFECT_ATTACK_SPEED = UUID.fromString("00001101-0000-1000-8000-40805f1b34fb");
     public WaterEffect() {
         super(MobEffectCategory.NEUTRAL, 0x25a4ff);
-        addAttributeModifier(Attributes.ATTACK_DAMAGE, WATER_EFFECT_ATTACK_DAMAGE.toString(), -1D, AttributeModifier.Operation.ADDITION);
         addAttributeModifier(Attributes.ATTACK_SPEED, WATER_EFFECT_ATTACK_SPEED.toString(), -1D, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
+        waterEffect(pLivingEntity);
+    }
+    public static void waterEffect(LivingEntity pLivingEntity) {
         Level level = pLivingEntity.level();
         boolean flag = !(pLivingEntity instanceof WaterEssenceMiteEntity);
         if (flag){
@@ -47,12 +48,11 @@ public class WaterEffect extends MobEffect {
                 }
             }
         }
-
     }
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return pDuration % 20 == 0;
+        return pDuration % 40 == 0;
     }
 
     @Override

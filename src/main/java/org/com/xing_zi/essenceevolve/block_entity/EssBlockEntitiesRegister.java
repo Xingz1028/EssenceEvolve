@@ -6,8 +6,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.com.xing_zi.essenceevolve.block.EssBlockRegister;
-import org.com.xing_zi.essenceevolve.block_entity.essence_assemble_table.EssenceAssemblyTableBlockEntity;
-import org.com.xing_zi.essenceevolve.block_entity.herb_cauldron.HerbCauldronBlockEntity;
 
 public class EssBlockEntitiesRegister {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -21,6 +19,10 @@ public class EssBlockEntitiesRegister {
             BLOCK_ENTITIES.register("herb_cauldron_be", () ->
                     BlockEntityType.Builder.of(HerbCauldronBlockEntity::new,
                             EssBlockRegister.HERB_CAULDRON.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SkillInfuserBlockEntity>> SKILL_INFUSER_ENTITY =
+            BLOCK_ENTITIES.register("skill_infuser_be", () ->
+                    BlockEntityType.Builder.of(SkillInfuserBlockEntity::new,
+                            EssBlockRegister.SKILL_INFUSER.get()).build(null));
 
 
 

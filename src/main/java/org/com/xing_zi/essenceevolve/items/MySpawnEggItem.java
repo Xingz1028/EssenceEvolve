@@ -94,7 +94,7 @@ public class MySpawnEggItem extends Item {
         //path = earth_essence_mite
         //拼接得到:
         //entity.essenceevolve.earth_essence_mite
-        //就是 getDescriptionId() 返回值。
+        //就是 getDescriptionId() 返回值
         pTooltipComponents.add(Component.translatable(entitySupplier.get().getDescriptionId()).withStyle(ChatFormatting.BLUE));
     }
 }

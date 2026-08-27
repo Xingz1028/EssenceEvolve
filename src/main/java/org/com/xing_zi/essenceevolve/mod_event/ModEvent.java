@@ -9,6 +9,8 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.com.xing_zi.essenceevolve.client.particle.custom_particle.*;
+import org.com.xing_zi.essenceevolve.client.screen.SkillInfuserScreen;
 import org.com.xing_zi.essenceevolve.entity.monster.mite_herder_wizard.MiteHerderWizardEntity;
 import org.com.xing_zi.essenceevolve.entity.monster.mite_herder_wizard.MiteHerderWizardEntityModel;
 import org.com.xing_zi.essenceevolve.entity.monster.mite_herder_wizard.MiteHerderWizardEntityRenderer;
@@ -33,10 +35,9 @@ import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.water_essence_m
 import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.EssenceMiteEntityModel;
 import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.wood_essence_mite.WoodEssenceMiteEntity;
 import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.wood_essence_mite.WoodEssenceMiteEntityRenderer;
-import org.com.xing_zi.essenceevolve.particle.custom_particle.*;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.screen.EssenceAssemblyTableScreen;
-import org.com.xing_zi.essenceevolve.screen.HerbCauldronScreen;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.screen.EssenceAssemblyTableScreen;
+import org.com.xing_zi.essenceevolve.client.screen.HerbCauldronScreen;
 
 
 @Mod.EventBusSubscriber(modid = "essenceevolve",value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -48,6 +49,7 @@ public class ModEvent {
         event.enqueueWork(() -> {
             MenuScreens.register(EssMenuRegister.HERB_CAULDRON_MENU.get(), HerbCauldronScreen::new);
             MenuScreens.register(EssMenuRegister.ESSENCE_ASSEMBLY_TABLE_MENU.get(), EssenceAssemblyTableScreen::new);
+            MenuScreens.register(EssMenuRegister.SKILL_INFUSER_MENU.get(), SkillInfuserScreen::new);
 
 
             EntityRenderers.register(EssEntityRegister.METAL_ESSENCE_MITE.get(), MetalEssenceMiteEntityRenderer::new);

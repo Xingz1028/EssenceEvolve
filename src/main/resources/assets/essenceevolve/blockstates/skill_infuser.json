@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "essenceevolve:block/skill_infuser"
+    },
+    "facing=south": {
+      "model": "essenceevolve:block/skill_infuser",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "essenceevolve:block/skill_infuser",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "essenceevolve:block/skill_infuser",
+      "y": 270
+    }
+  }
+}

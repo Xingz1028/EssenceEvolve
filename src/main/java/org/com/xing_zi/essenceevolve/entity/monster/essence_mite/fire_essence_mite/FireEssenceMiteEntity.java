@@ -16,7 +16,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 
 public class FireEssenceMiteEntity extends Monster {
     public FireEssenceMiteEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {

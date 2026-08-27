@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
 
 import java.util.List;
 import java.util.UUID;

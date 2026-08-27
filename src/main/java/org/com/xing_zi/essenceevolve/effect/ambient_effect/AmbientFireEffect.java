@@ -4,6 +4,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
@@ -15,12 +16,13 @@ public class AmbientFireEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
+        pLivingEntity.setSecondsOnFire(4);
     }
 
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return pDuration % 20 == 0;
+        return pDuration % 130 == 0;
     }
 
     @Override

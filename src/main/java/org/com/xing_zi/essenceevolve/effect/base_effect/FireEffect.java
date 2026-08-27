@@ -20,8 +20,6 @@ public class FireEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
         Level level = pLivingEntity.level();
-        boolean flag = !(pLivingEntity instanceof FireEssenceMiteEntity);
-        if (flag) {
             if (!level.isClientSide()) {
                 // 灼烧、着火逻辑完全保留不动
                 pLivingEntity.setSecondsOnFire(4);
@@ -41,7 +39,6 @@ public class FireEffect extends MobEffect {
                     serverLevel.sendParticles(ParticleTypes.SMOKE, x, y, z, 1, dx, dy, dz, 0);
                 }
             }
-        }
 
     }
 

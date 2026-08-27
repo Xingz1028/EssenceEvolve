@@ -8,7 +8,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.entity.monster.essence_mite.wood_essence_mite.WoodEssenceMiteEntity;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
 
 import java.util.List;
 

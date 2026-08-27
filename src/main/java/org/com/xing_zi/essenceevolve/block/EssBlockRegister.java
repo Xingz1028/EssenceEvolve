@@ -11,6 +11,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.com.xing_zi.essenceevolve.block.table.SkillInfuser;
 import org.com.xing_zi.essenceevolve.items.EssItemRegister;
 import org.com.xing_zi.essenceevolve.block.table.EssenceAssemblyTable;
 import org.com.xing_zi.essenceevolve.block.table.HerbCauldron;
@@ -23,27 +24,23 @@ public class EssBlockRegister {
 
 
     public static final RegistryObject<Block> ESSENCE_ASSEMBLY_TABLE =
-            registerBlock("essence_assembly_table", new Supplier<Block>() {
-                @Override
-                public Block get() {
-                    return new EssenceAssemblyTable(BlockBehaviour.Properties
-                            .copy(Blocks.BIRCH_WOOD)
-                            .sound(SoundType.WOOD)
-                            .noOcclusion()
-                    );
-                }
-            });
+            registerBlock("essence_assembly_table", () -> new EssenceAssemblyTable(BlockBehaviour.Properties
+                    .copy(Blocks.BIRCH_WOOD)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()
+            ));
     public static final RegistryObject<Block> HERB_CAULDRON =
-            registerBlock("herb_cauldron", new Supplier<Block>() {
-                @Override
-                public Block get() {
-                    return new HerbCauldron(BlockBehaviour.Properties
-                            .copy(Blocks.BIRCH_WOOD)
-                            .sound(SoundType.STONE)
-                            .noOcclusion()
-                    );
-                }
-            });
+            registerBlock("herb_cauldron", () -> new HerbCauldron(BlockBehaviour.Properties
+                    .copy(Blocks.BIRCH_WOOD)
+                    .sound(SoundType.STONE)
+                    .noOcclusion()
+            ));
+    public static final RegistryObject<Block> SKILL_INFUSER =
+            registerBlock("skill_infuser", () -> new SkillInfuser(BlockBehaviour.Properties
+                    .copy(Blocks.BIRCH_WOOD)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()
+            ));
 
 
 
@@ -56,13 +53,8 @@ public class EssBlockRegister {
         registerBlockItem(name, toReturn);
         return toReturn;
     }
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
-        return EssItemRegister.ESS_ITEMS.register(name, new Supplier<Item>() {
-            @Override
-            public Item get() {
-                return new BlockItem(block.get(), new Item.Properties());
-            }
-        });
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block){
+        EssItemRegister.ESS_ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void registerBlock(IEventBus modBus) {

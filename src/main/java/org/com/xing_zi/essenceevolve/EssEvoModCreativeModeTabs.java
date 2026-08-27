@@ -48,6 +48,16 @@ public class EssEvoModCreativeModeTabs {
                     creative.accept(EssItemRegister.WIND_WAND.get());
                     creative.accept(EssBlockRegister.ESSENCE_ASSEMBLY_TABLE.get());
                     creative.accept(EssBlockRegister.HERB_CAULDRON.get());
+                    creative.accept(EssBlockRegister.SKILL_INFUSER.get());
+                    creative.accept(EssItemRegister.AUREUS_LOTUS.get());
+                    creative.accept(EssItemRegister.VIRID_LEAF.get());
+                    creative.accept(EssItemRegister.UNDALUME_LOTUS.get());
+                    creative.accept(EssItemRegister.IGNIFLARE.get());
+                    creative.accept(EssItemRegister.TERRAPETRA.get());
+                    creative.accept(EssItemRegister.AROMAHOLD.get());
+                    creative.accept(EssItemRegister.WIND_SPIKE.get());
+                    creative.accept(EssItemRegister.THUNDER_SPIKE.get());
+                    creative.accept(EssItemRegister.MYSTERIOUS_ELIXIR.get());
                 }).build());
 
 

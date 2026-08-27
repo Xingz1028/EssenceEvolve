@@ -6,8 +6,8 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 
 import java.util.List;
 

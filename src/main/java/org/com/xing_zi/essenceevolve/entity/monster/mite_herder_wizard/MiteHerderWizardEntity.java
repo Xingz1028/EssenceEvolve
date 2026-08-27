@@ -17,7 +17,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 
 import java.util.ArrayList;
 import java.util.List;

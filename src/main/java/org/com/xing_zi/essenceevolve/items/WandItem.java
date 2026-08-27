@@ -13,7 +13,7 @@ import org.com.xing_zi.essenceevolve.entity.projectile.ball.EarthBallEntity.Eart
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.FireBallEntity.FireBallEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WaterBallEntity.WaterBallEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WindBallEntity.WindBallEntity;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 
 import java.util.function.Consumer;
 
@@ -59,7 +59,7 @@ public class WandItem extends Item {
                     waterBallEntity.setItem(handItem);
                     waterBallEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
                     pLevel.addFreshEntity(waterBallEntity);
-                    pPlayer.getCooldowns().addCooldown(this, 30);
+                    pPlayer.getCooldowns().addCooldown(this, 80);
                 }
                 if (TypeNum == FIRE_WAND) {
                         FireBallEntity fireBallEntity = new FireBallEntity(pPlayer, pLevel);
@@ -67,21 +67,21 @@ public class WandItem extends Item {
                         fireBallEntity.setGlowingTag(true);
                         fireBallEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
                         pLevel.addFreshEntity(fireBallEntity);
-                        pPlayer.getCooldowns().addCooldown(this, 30);
+                        pPlayer.getCooldowns().addCooldown(this, 80);
                 }
                 if (TypeNum == EARTH_WAND) {
                     EarthBallEntity earthBallEntity = new EarthBallEntity(pPlayer, pLevel);
                     earthBallEntity.setItem(handItem);
                     earthBallEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
                     pLevel.addFreshEntity(earthBallEntity);
-                    pPlayer.getCooldowns().addCooldown(this, 30);
+                    pPlayer.getCooldowns().addCooldown(this, 80);
                 }
                 if (TypeNum == WIND_WAND) {
                     WindBallEntity windBallEntity = new WindBallEntity(pPlayer, pLevel);
                     windBallEntity.setItem(handItem);
                     windBallEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
                     pLevel.addFreshEntity(windBallEntity);
-                    pPlayer.getCooldowns().addCooldown(this, 80);
+                    pPlayer.getCooldowns().addCooldown(this, 100);
                 }
                 if (TypeNum == THUNDER_WAND) {
 

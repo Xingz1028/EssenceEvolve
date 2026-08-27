@@ -13,8 +13,9 @@ import net.minecraft.world.phys.Vec3;
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.FireBallEntity.FireBallEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.talisman.ThunderTalismanEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.talisman.WindTalismanEntity;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
+import org.jetbrains.annotations.NotNull;
 
 public class TalismanItem extends Item {
     SimpleParticleType[] particleType = {
@@ -28,7 +29,7 @@ public class TalismanItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
         ItemStack handItem = pPlayer.getItemInHand(pUsedHand);
         pPlayer.getCooldowns().addCooldown(this, 80);
         if(!pLevel.isClientSide()){

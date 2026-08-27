@@ -25,8 +25,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.com.xing_zi.essenceevolve.block_entity.EssBlockEntitiesRegister;
-import org.com.xing_zi.essenceevolve.block_entity.essence_assemble_table.EssenceAssemblyTableBlockEntity;
-import org.jetbrains.annotations.NotNull;
+import org.com.xing_zi.essenceevolve.block_entity.EssenceAssemblyTableBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -132,10 +131,9 @@ public class EssenceAssemblyTable extends BaseEntityBlock {
      * 这里返回我们上面定义的 SHAPE，让方块不是完整立方体
      */
     @Override
-    public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public @Nullable VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return switch (pState.getValue(FACING)) {
-            case DOWN -> null;
-            case UP -> null;
+            case DOWN, UP -> null;
             case NORTH -> SHAPE_N;
             case SOUTH -> SHAPE_S;
             case WEST -> SHAPE_W;

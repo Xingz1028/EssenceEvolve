@@ -1,7 +1,12 @@
 {
   "values": [
-    "minecraft:carrot",
-    "minecraft:wheat",
-    "minecraft:apple"
+    "essenceevolve:aureus_lotus",
+    "essenceevolve:virid_leaf",
+    "essenceevolve:undalume_lotus",
+    "essenceevolve:igniflare",
+    "essenceevolve:terrapetra",
+    "essenceevolve:aromahold",
+    "essenceevolve:wind_spike",
+    "essenceevolve:thunder_spike"
   ]
 }

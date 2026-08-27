@@ -9,6 +9,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
 import org.com.xing_zi.essenceevolve.Essenceevolve;
+import org.com.xing_zi.essenceevolve.items.herb.attribute.HerbAttributeType;
+import org.com.xing_zi.essenceevolve.items.herb.MysteriousElixir;
+import org.com.xing_zi.essenceevolve.items.herb.HerbItem;
 
 public class EssItemRegister {
     public static final DeferredRegister<Item> ESS_ITEMS =
@@ -97,6 +100,27 @@ public class EssItemRegister {
             ESS_ITEMS.register("earth_essence_mite_egg",() -> new MySpawnEggItem(EssEntityRegister.EARTH_ESSENCE_MITE,new Item.Properties()));
     public static final RegistryObject<Item> MITE_HERDER_WIZARD_EGG =
             ESS_ITEMS.register("mite_herder_wizard_egg",() -> new MySpawnEggItem(EssEntityRegister.MITE_HERDER_WIZARD,new Item.Properties()));
+
+
+    public static final RegistryObject<Item> AUREUS_LOTUS =
+            ESS_ITEMS.register("aureus_lotus",() -> new HerbItem(new Item.Properties(), HerbAttributeType.AUREUS_LOTUS));
+    public static final RegistryObject<Item> VIRID_LEAF =
+            ESS_ITEMS.register("virid_leaf",() -> new HerbItem(new Item.Properties(), HerbAttributeType.VIRID_LEAF));
+    public static final RegistryObject<Item> UNDALUME_LOTUS =
+            ESS_ITEMS.register("undalume_lotus",() -> new HerbItem(new Item.Properties(), HerbAttributeType.UNDALUME_LOTUS));
+    public static final RegistryObject<Item> IGNIFLARE =
+            ESS_ITEMS.register("igniflare",() -> new HerbItem(new Item.Properties(), HerbAttributeType.IGNIFLARE));
+    public static final RegistryObject<Item> TERRAPETRA =
+            ESS_ITEMS.register("terrapetra",() -> new HerbItem(new Item.Properties(), HerbAttributeType.TERRAPETRA));
+    public static final RegistryObject<Item> AROMAHOLD =
+            ESS_ITEMS.register("aromahold",() -> new HerbItem(new Item.Properties(), HerbAttributeType.AROMAHOLD));
+    public static final RegistryObject<Item> WIND_SPIKE =
+            ESS_ITEMS.register("wind_spike",() -> new HerbItem(new Item.Properties(), HerbAttributeType.WIND_SPIKE));
+    public static final RegistryObject<Item> THUNDER_SPIKE =
+            ESS_ITEMS.register("thunder_spike",() -> new HerbItem(new Item.Properties(), HerbAttributeType.THUNDER_SPIKE));
+
+    public static final RegistryObject<Item> MYSTERIOUS_ELIXIR =
+            ESS_ITEMS.register("mysterious_elixir",() -> new MysteriousElixir(new Item.Properties().stacksTo(1)));
 
 
 

@@ -16,8 +16,8 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
-import org.com.xing_zi.essenceevolve.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class FireBallEntity extends ThrowableItemProjectile {
         Level level = this.level();
         if (entity instanceof LivingEntity pLivingEntity) {
             pLivingEntity.hurt(this.damageSources().thrown(this, this.getOwner()), attackValue);
-            pLivingEntity.addEffect(new MobEffectInstance(EssEffectRegister.FIRE_EFFECT.get(), 100, 0));
+            pLivingEntity.addEffect(new MobEffectInstance(EssEffectRegister.FIRE_EFFECT.get(), 100, 1));
             AABB boundingBox = pLivingEntity.getBoundingBox();
             AABB inflate = boundingBox.inflate(2, 2, 2);
             List<LivingEntity> entitiesOfClass = level.getEntitiesOfClass(LivingEntity.class, inflate);

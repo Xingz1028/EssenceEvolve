@@ -2,6 +2,8 @@ package org.com.xing_zi.essenceevolve.recipe.herb_cauldron_recipe;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
@@ -10,6 +12,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.com.xing_zi.essenceevolve.items.herb.HerbItem;
 import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
 
 public class HerbCauldronRecipe implements Recipe<SimpleContainer> {
@@ -48,10 +51,25 @@ public class HerbCauldronRecipe implements Recipe<SimpleContainer> {
         }
         return true;
     }
-
+    //实际产出物品
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
-        return output.copy();
+        ItemStack outputItem = output.copy();
+        for (int i = 0; i < pContainer.getContainerSize(); i++) {
+            ItemStack item = pContainer.getItem(i);
+            // 跳过空物品
+            if (item.isEmpty()) continue;
+            CompoundTag tag = item.getItem().getDefaultInstance().getOrCreateTag();
+            CompoundTag outputTag = outputItem.getOrCreateTag();
+            for (String key : tag.getAllKeys()) {
+                if (outputTag.contains(key, Tag.TAG_INT)){
+                    outputTag.putInt(key,outputTag.getInt(key)+1);
+                }else {
+                    outputTag.putInt(key,1);
+                }
+            }
+        }
+        return outputItem;
     }
 
     @Override
@@ -59,7 +77,7 @@ public class HerbCauldronRecipe implements Recipe<SimpleContainer> {
         return true;
     }
 
-    // 6. 获取产物堆叠数量
+    // 给玩家预览产物
     @Override
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();

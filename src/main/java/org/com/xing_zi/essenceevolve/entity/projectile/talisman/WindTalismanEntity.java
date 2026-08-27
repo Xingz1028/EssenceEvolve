@@ -13,7 +13,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.com.xing_zi.essenceevolve.effect.EssEffectRegister;
 import org.com.xing_zi.essenceevolve.entity.EssEntityRegister;
-import org.com.xing_zi.essenceevolve.particle.EssParticleRegister;
+import org.com.xing_zi.essenceevolve.client.particle.EssParticleRegister;
 
 public class WindTalismanEntity extends ThrowableItemProjectile {
 

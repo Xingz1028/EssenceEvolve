@@ -167,7 +167,7 @@ public class SkillInfuser extends BaseEntityBlock {
                         if (tick % 30 == 0){
                                 ServerLevel serverLevel = (ServerLevel) pLevel;
                                 double x = entity.getBlockPos().getX() + (pLevel.random.nextDouble());
-                                double y = entity.getBlockPos().getY() + 0.8;
+                                double y = entity.getBlockPos().getY() + 1.5;
                                 double z = entity.getBlockPos().getZ() + (pLevel.random.nextDouble());
                                 double dx = 0D;
                                 double dy = 0.5D;

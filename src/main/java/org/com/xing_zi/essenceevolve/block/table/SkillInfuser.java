@@ -163,6 +163,7 @@ public class SkillInfuser extends BaseEntityBlock {
             public void tick(Level pLevel, BlockPos pPos, BlockState pState, T pBlockEntity) {
                 if (pBlockEntity instanceof SkillInfuserBlockEntity entity) {
                     if (!pLevel.isClientSide()) {
+                        entity.tick();
                         tick++;
                         if (tick % 30 == 0){
                                 ServerLevel serverLevel = (ServerLevel) pLevel;

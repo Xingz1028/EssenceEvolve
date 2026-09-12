@@ -58,6 +58,7 @@ public class EssEvoModCreativeModeTabs {
                     creative.accept(EssItemRegister.WIND_SPIKE.get());
                     creative.accept(EssItemRegister.THUNDER_SPIKE.get());
                     creative.accept(EssItemRegister.MYSTERIOUS_ELIXIR.get());
+                    creative.accept(EssItemRegister.MULTIPLE_SHOT_SKILL_BOOK.get());
                 }).build());
 
 

@@ -12,6 +12,8 @@ import org.com.xing_zi.essenceevolve.Essenceevolve;
 import org.com.xing_zi.essenceevolve.items.herb.attribute.HerbAttributeType;
 import org.com.xing_zi.essenceevolve.items.herb.MysteriousElixir;
 import org.com.xing_zi.essenceevolve.items.herb.HerbItem;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.MultipleShot;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.SkillBookItem;
 
 public class EssItemRegister {
     public static final DeferredRegister<Item> ESS_ITEMS =
@@ -121,6 +123,8 @@ public class EssItemRegister {
 
     public static final RegistryObject<Item> MYSTERIOUS_ELIXIR =
             ESS_ITEMS.register("mysterious_elixir",() -> new MysteriousElixir(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MULTIPLE_SHOT_SKILL_BOOK =
+            ESS_ITEMS.register("multiple_shot_skill_book",() -> new SkillBookItem(new Item.Properties(),new MultipleShot(1)));
 
 
 

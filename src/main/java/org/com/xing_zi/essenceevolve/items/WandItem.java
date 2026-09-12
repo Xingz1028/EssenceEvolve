@@ -1,6 +1,9 @@
 package org.com.xing_zi.essenceevolve.items;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +17,8 @@ import org.com.xing_zi.essenceevolve.entity.projectile.ball.FireBallEntity.FireB
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WaterBallEntity.WaterBallEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WindBallEntity.WindBallEntity;
 import org.com.xing_zi.essenceevolve.client.sounds.EssSoundRegister;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.MultipleShot;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
@@ -34,7 +39,7 @@ public class WandItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
         ItemStack handItem = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
 
         if (!pLevel.isClientSide()) {
@@ -48,6 +53,20 @@ public class WandItem extends Item {
                         player.broadcastBreakEvent(InteractionHand.MAIN_HAND);
                     }
                 });
+                CompoundTag tag = handItem.getOrCreateTag();
+                if (tag.contains("ess.wand_skill")){
+                    System.out.println("666");
+                    ListTag list = tag.getList("ess.wand_skill", Tag.TAG_COMPOUND);
+                    Tag skillName = list.get(0);
+                    if (skillName instanceof CompoundTag skill){
+                        int skillLevel = skill.getInt("ess.multiple_shot");
+                        System.out.println(skillLevel);
+                        MultipleShot shot = new MultipleShot(skillLevel);
+                        shot.runSkill(pLevel,pPlayer,pUsedHand,TypeNum,this);
+                        return InteractionResultHolder.sidedSuccess(handItem, pLevel.isClientSide());
+                    }
+                }
+                System.out.println("222");
                 if (TypeNum == METAL_WAND) {
 
                 }

@@ -30,7 +30,6 @@ public class HerbCauldronRecipe implements Recipe<SimpleContainer> {
         this.recipeId = recipeId;
         this.inputItems = inputItems;//这个数据在Serializer里就传入了，fromJson方法通过反序列器读取json文件将物品获取到inputItems集合中
         this.output = output.copy();
-
     }
     //底层
     //`matches(SimpleContainer pContainer, Level pLevel)` 里的 `SimpleContainer` **不是你方块实体自己的物品存储**，是 MC 内部临时容器：

@@ -13,8 +13,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.com.xing_zi.essenceevolve.menu.SkillInfuserMenu;
+import org.com.xing_zi.essenceevolve.recipe.EssRecipesRegister;
+import org.com.xing_zi.essenceevolve.recipe.skill_infuser.SkillInfuserRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class SkillInfuserBlockEntity  extends BlockEntity implements MenuProvider {
     public SkillInfuserBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -62,5 +66,48 @@ public class SkillInfuserBlockEntity  extends BlockEntity implements MenuProvide
 
     public ItemStackHandler getItemStackHandler() {
         return itemStackHandler;
+    }
+
+
+
+
+    public SimpleContainer createRecipeContainer() {
+        SimpleContainer recipeContainer = new SimpleContainer(2);
+        for (int i = 0; i < recipeContainer.getContainerSize(); i++) {
+            recipeContainer.setItem(i, itemStackHandler.getStackInSlot(i));
+        }
+        return recipeContainer;
+    }
+    public Optional<SkillInfuserRecipe> getRecipe(){
+        if (level == null){
+            return Optional.empty();
+        }
+        SimpleContainer recipeContainer = createRecipeContainer();
+        return level.getRecipeManager().getRecipeFor(EssRecipesRegister.SKILL_INFUSER_RECIPE.get(),recipeContainer,level);
+    }
+    public void craftFinish(SkillInfuserRecipe recipe){
+        if (level == null) return;
+        ItemStack resultItem = recipe.assemble(createRecipeContainer(), level.registryAccess());
+        itemStackHandler.setStackInSlot(OUTPUT_SLOT, resultItem);
+    }
+    public void consumeInputItems() {
+
+        for (int i = 0; i < 2; i++) {
+            ItemStack stackInSlot = itemStackHandler.getStackInSlot(i);
+            stackInSlot.shrink(1);
+            itemStackHandler.setStackInSlot(i, stackInSlot);
+        }
+    }
+    //合成逻辑
+    public void tick() {
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+
+        Optional<SkillInfuserRecipe> recipe = getRecipe();
+        if (recipe.isPresent()) {
+            setChanged();
+            craftFinish(recipe.get());//游戏启动获取json文件转换成对象，get() 是运行时筛选有效配方，不是读文件。
+        }
     }
 }

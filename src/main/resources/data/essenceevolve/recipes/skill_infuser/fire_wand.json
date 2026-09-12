@@ -1,0 +1,11 @@
+{
+  "type": "essenceevolve:skill_infuser_recipe_serializer",
+  "ingredients": [
+    {"item": "essenceevolve:fire_wand"},
+    {"item": "essenceevolve:multiple_shot_skill_book"}
+  ],
+  "output": {
+    "item": "essenceevolve:fire_wand",
+    "count": 1
+  }
+}

@@ -10,6 +10,8 @@ import org.com.xing_zi.essenceevolve.recipe.essence_assembly_table_recipe.Essenc
 import org.com.xing_zi.essenceevolve.recipe.essence_assembly_table_recipe.EssenceAssemblyTableRecipeSerializer;
 import org.com.xing_zi.essenceevolve.recipe.herb_cauldron_recipe.HerbCauldronRecipe;
 import org.com.xing_zi.essenceevolve.recipe.herb_cauldron_recipe.HerbCauldronRecipeSerializer;
+import org.com.xing_zi.essenceevolve.recipe.skill_infuser.SkillInfuserRecipe;
+import org.com.xing_zi.essenceevolve.recipe.skill_infuser.SkillInfuserRecipeSerializer;
 
 
 import java.util.function.Supplier;
@@ -50,6 +52,22 @@ public class EssRecipesRegister {
                 @Override
                 public RecipeSerializer<EssenceAssemblyTableRecipe> get() {
                     return new EssenceAssemblyTableRecipeSerializer();
+                }
+            });
+
+    public static final RegistryObject<RecipeType<SkillInfuserRecipe>> SKILL_INFUSER_RECIPE =
+            RECIPE_TYPES.register("skill_infuser_recipe", new Supplier<RecipeType<SkillInfuserRecipe>>() {
+                @Override
+                public RecipeType<SkillInfuserRecipe> get() {
+                    return new RecipeType<SkillInfuserRecipe>() {
+                    };
+                }
+            });
+    public static final RegistryObject<RecipeSerializer<SkillInfuserRecipe>> SKILL_INFUSER_RECIPE_SERIALIZER =
+            RECIPE_SERIALIZER.register("skill_infuser_recipe_serializer",new Supplier<RecipeSerializer<SkillInfuserRecipe>>() {
+                @Override
+                public RecipeSerializer<SkillInfuserRecipe> get() {
+                    return new SkillInfuserRecipeSerializer();
                 }
             });
 

@@ -8,4 +8,5 @@ import net.minecraft.world.item.Item;
 
 public class ItemTags {
     public static final TagKey<Item> HERB = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("essenceevolve", "herb"));
+    public static final TagKey<Item> WAND = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("essenceevolve", "wand"));
 }

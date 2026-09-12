@@ -13,16 +13,14 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.com.xing_zi.essenceevolve.block.EssBlockRegister;
 import org.com.xing_zi.essenceevolve.block_entity.SkillInfuserBlockEntity;
+import org.com.xing_zi.essenceevolve.recipe.skill_infuser.SkillInfuserResultSlot;
 
 public class SkillInfuserMenu extends AbstractContainerMenu {
     private SkillInfuserBlockEntity blockEntity;
-
     private Level level;
-
     private final int TOOL_INPUT_SLOT = 0;
     private final int BOOK_INPUT_SLOT = 1;
     private final int OUTPUT_SLOT = 2;
-
 
     public SkillInfuserMenu(int pContainerId, Inventory pInventory, FriendlyByteBuf buf) {
         this(pContainerId, pInventory, pInventory.player.level().getBlockEntity(buf.readBlockPos()));
@@ -113,5 +111,4 @@ public class SkillInfuserMenu extends AbstractContainerMenu {
         this.addSlot(new SlotItemHandler(itemStackHandler, BOOK_INPUT_SLOT, 97, 61));
         this.addSlot(new SlotItemHandler(itemStackHandler, OUTPUT_SLOT, 163, 61));
     }
-
 }

@@ -156,4 +156,7 @@ public class WindBallEntity extends ThrowableItemProjectile {
             tick = 0;
         }
     }
+    public void addAttackValue(float add) {
+        this.attackValue = DEFAULT_ATTACK_VALUE +add;
+    }
 }

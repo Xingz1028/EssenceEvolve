@@ -153,8 +153,8 @@ public class EarthBallEntity extends ThrowableItemProjectile {
                     double dx = 0D;
                     double dy = 0D;
                     double dz = 0D;
-                    serverLevel.sendParticles(EssParticleRegister.LITTLE_SOIL.get(), x, y, z, 2, dx, dy, dz, 0D);
-                    serverLevel.sendParticles(EssParticleRegister.BIG_SOIL.get(), x, y, z, 2, dx, dy, dz, 0D);
+                    serverLevel.sendParticles(EssParticleRegister.LITTLE_SOIL.get(), x, y, z, 0, dx, dy, dz, 0D);
+                    serverLevel.sendParticles(EssParticleRegister.BIG_SOIL.get(), x, y, z, 0, dx, dy, dz, 0D);
                 }
             }
         }
@@ -164,5 +164,8 @@ public class EarthBallEntity extends ThrowableItemProjectile {
         if (tick == 100) {
             tick = 0;
         }
+    }
+    public void addAttackValue(float add) {
+        this.attackValue = DEFAULT_ATTACK_VALUE +add;
     }
 }

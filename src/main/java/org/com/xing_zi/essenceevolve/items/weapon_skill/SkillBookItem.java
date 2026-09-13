@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 
 public class SkillBookItem extends Item {
     private final SkillType skill;
-    private  String skillKey;
     private String skillId;
     private  int skillLevel;
 
@@ -22,21 +21,8 @@ public class SkillBookItem extends Item {
 
     @Override
     public ItemStack getDefaultInstance() {
-        skillKey = skill.getSkillKey();
         skillId = skill.getSkillId();
         skillLevel = skill.getSkillLevel();
         return super.getDefaultInstance();
-    }
-
-    public int getSkillLevel() {
-        return skillLevel;
-    }
-
-    public String getSkillId() {
-        return skillId;
-    }
-
-    public String getSkillKey() {
-        return skillKey;
     }
 }

@@ -7,7 +7,6 @@ import org.com.xing_zi.essenceevolve.items.WandItem;
 import org.jetbrains.annotations.NotNull;
 
 public interface SkillType {
-    String getSkillKey();
     String getSkillId();
     int getSkillLevel();
     void runSkill(Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand, int TypeNum, WandItem wandItem);

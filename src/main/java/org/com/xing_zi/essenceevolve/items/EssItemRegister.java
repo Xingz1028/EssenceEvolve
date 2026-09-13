@@ -12,7 +12,7 @@ import org.com.xing_zi.essenceevolve.Essenceevolve;
 import org.com.xing_zi.essenceevolve.items.herb.attribute.HerbAttributeType;
 import org.com.xing_zi.essenceevolve.items.herb.MysteriousElixir;
 import org.com.xing_zi.essenceevolve.items.herb.HerbItem;
-import org.com.xing_zi.essenceevolve.items.weapon_skill.MultipleShot;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.skilltype.MultipleShot;
 import org.com.xing_zi.essenceevolve.items.weapon_skill.SkillBookItem;
 
 public class EssItemRegister {

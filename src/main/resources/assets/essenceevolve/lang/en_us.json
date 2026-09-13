@@ -156,7 +156,9 @@
   "thunder_stride.tier3": "【Thunder Stride III】increases player movement speed",
   "thunder_stride.tier4": "【Thunder Stride IV】increases player movement speed",
   "thunder_stride.tier5": "【Thunder Stride V】increases player movement speed",
-  "thunder_stride.tier6": "【Thunder Stride VI】increases player movement speed"
+  "thunder_stride.tier6": "【Thunder Stride VI】increases player movement speed",
+  "ess.wand.skill.multiple_shot.tooltip.1": "Multiple shot I",
+  "ess.wand.skill.multiple_shot.tooltip.2": "Multiple shot II"
 
 
 

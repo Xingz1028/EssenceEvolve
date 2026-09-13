@@ -1,4 +1,4 @@
-package org.com.xing_zi.essenceevolve.items.weapon_skill;
+package org.com.xing_zi.essenceevolve.items.weapon_skill.skilltype;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -9,6 +9,8 @@ import org.com.xing_zi.essenceevolve.entity.projectile.ball.FireBallEntity.FireB
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WaterBallEntity.WaterBallEntity;
 import org.com.xing_zi.essenceevolve.entity.projectile.ball.WindBallEntity.WindBallEntity;
 import org.com.xing_zi.essenceevolve.items.WandItem;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.SkillLevelOutOfBoundsException;
+import org.com.xing_zi.essenceevolve.items.weapon_skill.SkillType;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -23,12 +25,6 @@ public class MultipleShot implements SkillType {
                     ("skill level"+skillLevel+"out of bounds for level 3 !!");
         }
     }
-
-    @Override
-    public String getSkillKey() {
-        return "ess.wand_skill";
-    }
-
     @Override
     public String getSkillId() {
         return "ess.multiple_shot";
@@ -88,5 +84,8 @@ public class MultipleShot implements SkillType {
         if (TypeNum == WandItem.THUNDER_WAND) {
 
         }
+    }
+    public int shotCount(){
+        return skillLevel*2;
     }
 }
